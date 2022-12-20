@@ -1,4 +1,12 @@
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    color: black;
+}
 
 header {
     background: darkorchid;
@@ -31,3 +39,4 @@ nav ul li a {
 nav ul li:hover {
     background: gold;
 }
+

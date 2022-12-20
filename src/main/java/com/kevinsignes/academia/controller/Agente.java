@@ -25,6 +25,12 @@ public class Agente {
         return "notas";
     }
 
+    @GetMapping("/perfil")
+    public String perfil(){
+
+        return "perfil";
+    }
+
 
 
 }
