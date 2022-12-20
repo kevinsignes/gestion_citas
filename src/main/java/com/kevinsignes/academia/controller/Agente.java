@@ -13,4 +13,18 @@ public class Agente {
         return "pagina";
     }
 
+    @GetMapping("/asignaturas")
+    public String asignatura(){
+
+        return "asignaturas";
+    }
+
+    @GetMapping("/notas")
+    public String notas(){
+
+        return "notas";
+    }
+
+
+
 }
