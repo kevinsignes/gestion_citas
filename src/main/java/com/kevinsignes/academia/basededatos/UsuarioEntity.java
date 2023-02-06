@@ -32,6 +32,9 @@ public class UsuarioEntity {
     @Basic
     @Column(name = "Fecha_nacimiento", nullable = true, length = 45)
     private String fechaNacimiento;
+    @Basic
+    @Column(name = "email", nullable = true, length = 45)
+    private String email;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -97,16 +100,24 @@ public class UsuarioEntity {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsuarioEntity that = (UsuarioEntity) o;
-        return idUsuario == that.idUsuario && Objects.equals(usuarioName, that.usuarioName) && Objects.equals(password, that.password) && Objects.equals(rol, that.rol) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido1, that.apellido1) && Objects.equals(apellido2, that.apellido2) && Objects.equals(fechaNacimiento, that.fechaNacimiento);
+        return idUsuario == that.idUsuario && Objects.equals(usuarioName, that.usuarioName) && Objects.equals(password, that.password) && Objects.equals(rol, that.rol) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido1, that.apellido1) && Objects.equals(apellido2, that.apellido2) && Objects.equals(fechaNacimiento, that.fechaNacimiento) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUsuario, usuarioName, password, rol, nombre, apellido1, apellido2, fechaNacimiento);
+        return Objects.hash(idUsuario, usuarioName, password, rol, nombre, apellido1, apellido2, fechaNacimiento, email);
     }
 }
