@@ -5,12 +5,14 @@
 }
 
 footer {
+
     color: black;
 }
 .hrpie{
     width: 100%;
     text-align: center;
 }
+
 
 header {
     background: darkorchid;
@@ -43,4 +45,26 @@ nav ul li a {
 nav ul li:hover {
     background: gold;
 }
+table {
+    width: 100%;
+    border: 1px solid;
+    text-align: center;
+    border-collapse: collapse;
 
+}
+th, td {
+    vertical-align: top;
+    border: 1px solid #000;
+    border-spacing: 0;
+    padding: 2em;
+}
+.caption{
+    background: cadetblue;
+    text-align: center;
+}
+th{
+    text-align: left;
+}
+.footerEspacio{
+    padding-top: 5em;
+}
