@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PublicController {
     @GetMapping({"/","index"})
     public String index(){
-        return "pagina";
+        return "index";
     }
 }

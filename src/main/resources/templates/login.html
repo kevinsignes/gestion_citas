@@ -6,23 +6,16 @@
   <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
-<div>
-  <form th:action="@{/login}" method="post">
-    <h2>Inicio de sesión</h2>
-
-    <p>
-      <label for="username">Nombre de usuario:</label>
-      <input type="text" id="username" name="username">
-    </p>
-
-    <p>
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password">
-    </p>
-
-    <input type="submit" value="Iniciar sesión">
+<main>
+  <form id="loginform" th:action="@{/login}" method="POST" role="form" >
+    <h1>Login</h1>
+    <input type="text" name="email" id="email" placeholder="Email">
+    <br>
+    <input type="password" name="password" id="password" placeholder="Password">
+    <hr>
+    <button type="submit">Continue</button>
+    <small class="text-muted"><a href="/register">Register here!</a></small>
   </form>
-</div>
-
+</main>
 </body>
 </html>
