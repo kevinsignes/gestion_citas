@@ -32,14 +32,10 @@ public class Agente {
         return "perfil";
     }
 
-    @RequestMapping("/login")
-    public String login(Model model) {
-            model.addAttribute("error", "Credenciales inválidas");
-            model.addAttribute("message", "Ha cerrado sesión con éxito");
-
+    @GetMapping({"/login"})
+    public String goToLogin(){
         return "login";
     }
-
 
 
 }

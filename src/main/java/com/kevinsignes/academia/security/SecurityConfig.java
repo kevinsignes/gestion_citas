@@ -38,13 +38,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/user").authenticated()
+                .requestMatchers("/","/asignaturas").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("email")
                 .loginPage("/login")
-                .defaultSuccessUrl("/changeme") //TODO:
+                .defaultSuccessUrl("/") //TODO:
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
