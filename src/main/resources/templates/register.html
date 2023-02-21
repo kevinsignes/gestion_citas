@@ -8,10 +8,18 @@
 <main>
   <form id="registerform" th:action="@{/process_register}" th:object="${user}" method="POST" role="form" >
     <h1>Register</h1>
-    <input type="text" th:field="*{email}" placeholder="Username">
-    <br>
-    <input type="password" th:field="*{password}" placeholder="Password">
-    <hr>
+      <div><label>Nombre de Usuario</label></div>
+      <input type="text" name="usuario_name" />
+      <div><label>Contraseña</label></div>
+      <input type="password" name="password"/>
+      <div><label>Nombre</label></div>
+      <input type="text" name="nombre"/>
+      <div><label>Primer apellido</label></div>
+      <input type="text" name="apellido1"/>
+      <div><label>Segundo apellido</label></div>
+      <input type="text" name="apellido2"/>
+      <div><label>Fecha de nacimineto</label></div>
+      <input type="date" name="fecha_nacimineto"/>
     <button type="submit">Continue</button>
   </form>
 </main>
