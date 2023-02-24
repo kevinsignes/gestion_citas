@@ -6,21 +6,21 @@
 </head>
 <body>
 <main>
-  <form id="registerform" th:action="@{/process_register}" th:object="${user}" method="POST" role="form" >
+  <form id="registerform" th:action="@{/register/submit}" th:object="${user}" action="" method="post">
     <h1>Register</h1>
       <div><label>Nombre de Usuario</label></div>
-      <input type="text" name="usuario_name" />
+      <input type="text" th:field="*{username}" name="usuario_name" />
       <div><label>Contraseña</label></div>
-      <input type="password" name="password"/>
+      <input type="password" th:field="*{password}" name="password"/>
       <div><label>Nombre</label></div>
-      <input type="text" name="nombre"/>
+      <input type="text"  th:field="*{nombre}"name="nombre"/>
       <div><label>Primer apellido</label></div>
-      <input type="text" name="apellido1"/>
+      <input type="text" th:field="*{apellido1}" name="apellido1"/>
       <div><label>Segundo apellido</label></div>
-      <input type="text" name="apellido2"/>
+      <input type="text"  th:field="*{apellido2}" name="apellido2"/>
       <div><label>Fecha de nacimineto</label></div>
-      <input type="date" name="fecha_nacimineto"/>
-    <button type="submit">Continue</button>
+      <input type="date" th:field="*{fechaNacimiento}" name="fecha_nacimineto"/>
+    <button type="submit" value="Registrarse">Continue</button>
   </form>
 </main>
 </body>

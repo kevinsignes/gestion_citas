@@ -1,6 +1,6 @@
 package com.kevinsignes.academia.service;
 
-import com.kevinsignes.academia.basededatos.UsuarioEntity;
+import com.kevinsignes.academia.basededatos.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,9 +8,9 @@ import java.util.Collection;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private UsuarioEntity user;
+    private Usuario user;
 
-    public UserDetailsImpl(UsuarioEntity user) {
+    public UserDetailsImpl(Usuario user) {
         this.user = user;
     }
 
@@ -26,26 +26,27 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return user.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
     }
+
 }

@@ -1,19 +1,21 @@
 package com.kevinsignes.academia.basededatos;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "usuario", schema = "academia", catalog = "")
-public class UsuarioEntity {
+public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "idUsuario", nullable = false)
     private int idUsuario;
     @Basic
     @Column(name = "Usuario_Name", nullable = true, length = 45)
-    private String usuarioName;
+    private String username;
     @Basic
     @Column(name = "Password", nullable = true, length = 45)
     private String password;
@@ -32,9 +34,6 @@ public class UsuarioEntity {
     @Basic
     @Column(name = "Fecha_nacimiento", nullable = true, length = 45)
     private String fechaNacimiento;
-    @Basic
-    @Column(name = "email", nullable = true, length = 45)
-    private String email;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -44,16 +43,43 @@ public class UsuarioEntity {
         this.idUsuario = idUsuario;
     }
 
-    public String getUsuarioName() {
-        return usuarioName;
+
+    public void setUsername(String usuarioName) {
+        this.username = usuarioName;
     }
 
-    public void setUsuarioName(String usuarioName) {
-        this.usuarioName = usuarioName;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public void setPassword(String password) {
@@ -100,24 +126,16 @@ public class UsuarioEntity {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsuarioEntity that = (UsuarioEntity) o;
-        return idUsuario == that.idUsuario && Objects.equals(usuarioName, that.usuarioName) && Objects.equals(password, that.password) && Objects.equals(rol, that.rol) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido1, that.apellido1) && Objects.equals(apellido2, that.apellido2) && Objects.equals(fechaNacimiento, that.fechaNacimiento) && Objects.equals(email, that.email);
+        Usuario usuario = (Usuario) o;
+        return idUsuario == usuario.idUsuario && Objects.equals(username, usuario.username) && Objects.equals(password, usuario.password) && Objects.equals(rol, usuario.rol) && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido1, usuario.apellido1) && Objects.equals(apellido2, usuario.apellido2) && Objects.equals(fechaNacimiento, usuario.fechaNacimiento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUsuario, usuarioName, password, rol, nombre, apellido1, apellido2, fechaNacimiento, email);
+        return Objects.hash(idUsuario, username, password, rol, nombre, apellido1, apellido2, fechaNacimiento);
     }
 }
