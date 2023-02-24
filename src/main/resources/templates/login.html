@@ -7,6 +7,18 @@
 </head>
 <body>
 <main>
+
+  <div>
+    <header th:replace="header/nav :: mimenu"></header>
+  </div>
+
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
   <form id="loginform" th:action="@{/login}" method="post" role="form" >
     <h1>Login</h1>
     <input type="text" name="text" id="usuario_name" placeholder="usuario_name">
