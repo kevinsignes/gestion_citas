@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Objects;
 
+
 @Entity
 public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -138,4 +139,5 @@ public class Usuario implements UserDetails {
     public int hashCode() {
         return Objects.hash(idUsuario, username, password, rol, nombre, apellido1, apellido2, fechaNacimiento);
     }
+
 }
