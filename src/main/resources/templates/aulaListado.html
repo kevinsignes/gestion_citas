@@ -24,15 +24,15 @@
     <table class="table table-hover container">
       <thead>
       <tr>
-        <th>ID</th>
-        <th>Codigo</th>
-        <th>Numero de Pupitres</th>
+        <th class="caption">ID</th>
+        <th class="caption">Codigo</th>
+        <th class="caption">Numero de Pupitres</th>
 
 
       </thead>
       <tbody>
       <tr th:each="aula : ${aulas}">
-        <td th:text="${aula.idAula}">ID</td>
+        <td  th:text="${aula.idAula}">ID</td>
         <td th:text="${aula.codigo}">codigo</td>
         <td th:text="${aula.numeroPupitres}">pupitres</td>
       </tr>

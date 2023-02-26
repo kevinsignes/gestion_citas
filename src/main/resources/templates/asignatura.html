@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignatura</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<main>
+
+  <div>
+    <header th:replace="header/nav :: mimenu"></header>
+  </div>
+
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <form class="formulario" id="asignaturaform" th:action="@{/asignatura/submit}" th:object="${asignatura}" action="" method="post">
+    <h1>Curso</h1>
+    <div><label>Nombre de la Asignatura</label></div>
+    <input type="nombre" th:field="*{nombreAsignatura}" name="nombre" />
+    <div><label>Professor ID</label></div>
+    <input type="numero" th:field="*{professorIdProfessor}" name="codigo"/>
+    <div><label>Aula ID</label></div>
+    <input type="numero" th:field="*{aulaIdAula}" name="codigo"/>
+    <div><label>Curso ID</label></div>
+    <input type="numero" th:field="*{professorIdProfessor}" name="codigo"/>
+    <button type="submit" value="Curso">Continue</button>
+  </form>
+</main>
+</body>
+</html>
