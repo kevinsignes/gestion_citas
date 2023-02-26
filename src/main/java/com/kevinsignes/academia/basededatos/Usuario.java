@@ -14,7 +14,7 @@ public class Usuario implements UserDetails {
     @Column(name = "idUsuario", nullable = false)
     private int idUsuario;
     @Basic
-    @Column(name = "Usuario_Name", nullable = true, length = 45)
+    @Column(name = "username", nullable = true, length = 45)
     private String username;
     @Basic
     @Column(name = "Password", nullable = true, length = 45)

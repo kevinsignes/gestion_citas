@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 <body>
 <main>
+
+  <div>
+    <header th:replace="header/nav :: mimenu"></header>
+  </div>
+
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
   <form id="registerform" th:action="@{/register/submit}" th:object="${user}" action="" method="post">
     <h1>Register</h1>
       <div><label>Nombre de Usuario</label></div>

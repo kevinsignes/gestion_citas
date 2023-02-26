@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CursoListado</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<main>
+
+  <div>
+    <header th:replace="header/nav :: mimenu"></header>
+  </div>
+
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
+  <div>
+    <table class="table table-hover container">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre del curso</th>
+        <th>Codigo del curso</th>
+
+
+      </thead>
+      <tbody>
+      <tr th:each="curso : ${cursos}">
+        <td th:text="${curso.idCurso}">ID</td>
+        <td th:text="${curso.nombre}">nombre</td>
+        <td th:text="${curso.codigo}">codigo</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+</body>
+</html>

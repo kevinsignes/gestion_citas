@@ -4,6 +4,7 @@ import com.kevinsignes.academia.basededatos.Usuario;
 import com.kevinsignes.academia.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,9 @@ public class RegisterController {
     @Autowired
     private IUsuarioRepository iUserRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping({"/register"})
     public String goToregister(Model model){
         model.addAttribute("user", new Usuario());
@@ -23,7 +27,6 @@ public class RegisterController {
     }
     @PostMapping("/register/submit")
     public String processRegister(@ModelAttribute("user") Usuario user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         iUserRepository.save(user);

@@ -26,7 +26,6 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
 
@@ -38,13 +37,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/asignaturas").authenticated()
+                //.requestMatchers("/","/asignaturas").authenticated()
+                .requestMatchers("/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("username")
-                .loginPage("/login")
-                .defaultSuccessUrl("/") //TODO:
+                .defaultSuccessUrl("/asignaturas") //TODO:
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
