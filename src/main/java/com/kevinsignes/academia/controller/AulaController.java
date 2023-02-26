@@ -20,8 +20,8 @@ public class AulaController {
 
     @GetMapping({"/aula"})
     public String goTocurso(Model model){
-        model.addAttribute("curso", new CursoEntity());
-        return "curso";
+        model.addAttribute("aula", new AulaEntity());
+        return "aula";
     }
     @PostMapping("/aula/submit")
     public String processCurso(@ModelAttribute("aula") AulaEntity aula) {
