@@ -30,6 +30,6 @@ public class RegisterController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         iUserRepository.save(user);
-        return "index";
+        return "principal";
     }
 }
