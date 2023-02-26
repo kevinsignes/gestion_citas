@@ -18,7 +18,7 @@
     <br>
     <br>
   </div>
-  <form id="registerform" th:action="@{/register/submit}" th:object="${user}" action="" method="post">
+  <form class="formulario" id="registerform" th:action="@{/register/submit}" th:object="${user}" action="" method="post">
     <h1>Register</h1>
       <div><label>Nombre de Usuario</label></div>
       <input type="text" th:field="*{username}" name="usuario_name" />

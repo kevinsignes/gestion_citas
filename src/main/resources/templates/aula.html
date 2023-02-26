@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
+<form class="formulario" id="aulaform" th:action="@{/aula/submit}" th:object="${aula}" action="" method="post">
+  <h1>Aula</h1>
+  <div><label>Codigo de el aula</label></div>
+  <input type="codigo" th:field="*{codigo}" name="nombre" />
+  <div><label>Numero de Pupitres</label></div>
+  <input type="numero" th:field="*{numeroPupitres}" name="codigo"/>
+  <button type="submit" value="Aula">Continue</button>
+</form>
+
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+</body>
+</html>
