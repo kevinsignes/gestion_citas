@@ -21,7 +21,7 @@
   <form class="formulario" id="asignaturaform" th:action="@{/asignatura/submit}" th:object="${asignatura}" action="" method="post">
     <h1>Curso</h1>
     <div><label>Nombre de la Asignatura</label></div>
-    <input type="nombre" th:field="*{nombreAsignatura}" name="nombre" />
+    <input type="text" th:field="*{nombreAsignatura}" name="nombre" />
     <div><label>Professor ID</label></div>
     <input type="numero" th:field="*{professorIdProfessor}" name="professoresid"/>
     <div><label>Aula ID</label></div>

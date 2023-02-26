@@ -1,5 +1,6 @@
 package com.kevinsignes.academia.controller;
 
+import com.kevinsignes.academia.basededatos.CursoEntity;
 import com.kevinsignes.academia.basededatos.Usuario;
 import com.kevinsignes.academia.repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class RegisterController {
@@ -30,6 +33,12 @@ public class RegisterController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         iUserRepository.save(user);
-        return "principal";
+        return "pagina";
+    }
+    @GetMapping("/usuario/all")
+    public String processCursoList(Model model) {
+        List<Usuario> cursoEntities = iUserRepository.findAll();
+        model.addAttribute("usuarios",cursoEntities);
+        return "usuarioListado";
     }
 }
