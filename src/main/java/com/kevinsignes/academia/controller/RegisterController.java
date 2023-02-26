@@ -36,7 +36,7 @@ public class RegisterController {
         return "pagina";
     }
     @GetMapping("/usuario/all")
-    public String processCursoList(Model model) {
+    public String processUsuarioList(Model model) {
         List<Usuario> cursoEntities = iUserRepository.findAll();
         model.addAttribute("usuarios",cursoEntities);
         return "usuarioListado";
