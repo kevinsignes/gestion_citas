@@ -17,6 +17,8 @@ spring.datasource.username=root
 spring.datasource.password=
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
+<Importante> en el puerto preterminado que tenemos en xampp es 3306 pero en este caso lo cambie porque ya lo tenia en uso
+Tambien el usuario es root sin  contraseña como se puede apreciar
 
 Esta pagina funcionaria de la siguiente manera hay dos tipos de roles/vistas Null y admin
 
