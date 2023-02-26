@@ -2,7 +2,7 @@
 
 ![Image](Diagrama.png)
 
-En la foto que se puede apreciar de la base de datos no esta el id en autoincremental  pero si esta en la base de  que es los que importa igual que en la sql
+
 ![Alt Text](AcademiaBD.png)
 
 
