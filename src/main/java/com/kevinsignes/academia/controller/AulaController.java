@@ -19,17 +19,17 @@ public class AulaController {
     private IAulaRepository iAulaRepository;
 
     @GetMapping({"/aula"})
-    public String goTocurso(Model model){
+    public String goToaula(Model model){
         model.addAttribute("aula", new AulaEntity());
         return "aula";
     }
     @PostMapping("/aula/submit")
-    public String processCurso(@ModelAttribute("aula") AulaEntity aula) {
+    public String processAula(@ModelAttribute("aula") AulaEntity aula) {
         iAulaRepository.save(aula);
         return "redirect:/aula/all";
     }
     @GetMapping("/aula/all")
-    public String processCursoList(Model model) {
+    public String processAulaList(Model model) {
         List<AulaEntity> aulaEntities = iAulaRepository.findAll();
         model.addAttribute("aulas",aulaEntities);
         return "aulaListado";

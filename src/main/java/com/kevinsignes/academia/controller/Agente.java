@@ -32,7 +32,7 @@ public class Agente {
 
     @GetMapping({"/login"})
     public String goToLogin(){
-        return "login2";
+        return "login";
     }
 
 
