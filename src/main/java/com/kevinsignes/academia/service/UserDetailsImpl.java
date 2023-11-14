@@ -1,5 +1,6 @@
 package com.kevinsignes.academia.service;
 
+import com.kevinsignes.academia.basededatos.ClienteEntity;
 import com.kevinsignes.academia.basededatos.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,9 +9,9 @@ import java.util.Collection;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private Usuario user;
+    private ClienteEntity user;
 
-    public UserDetailsImpl(Usuario user) {
+    public UserDetailsImpl(ClienteEntity user) {
         this.user = user;
     }
 
@@ -26,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getUsuario();
     }
 
     @Override
