@@ -11,8 +11,8 @@
     <groupId>com.kevinsignes</groupId>
     <artifactId>Academia</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Academia</name>
-    <description>Academia</description>
+    <name>Gestion_citas</name>
+    <description>Gestion_citas</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
@@ -128,10 +128,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
     <build>
