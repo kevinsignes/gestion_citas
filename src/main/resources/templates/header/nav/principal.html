@@ -8,20 +8,20 @@
 <body>
 <nav th:fragment="menu1">
     <ul class="menu-horizontal">
-        <li><a href="#">Inicio</a></li>
+        <li><a th:href="@{/inicio}">Inicio</a></li>
         <li>
             <a href="#">Admin</a>
             <ul class="menu-vertical">
-                <li><a href="#">Crear cita</a></li>
-                <li><a href="#">Crear empleado</a></li>
-                <li><a href="#">crear servicio</a></li>
+                <li><a th:href="@{/}">Crear cita</a></li>
+                <li><a>Crear empleado</a></li>
+                <li><a>Crear servicio</a></li>
             </ul>
         </li>
         <li>
             <a href="#">Cliente Login</a>
             <ul class="menu-vertical">
                 <li><a href="#">Inicio Sesion</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="#">Registrarse</a></li>
             </ul>
         </li>
         <li><a href="#">Perfil</a></li>
