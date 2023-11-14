@@ -1,82 +1,58 @@
-
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
 }
-
-.inicio{
-    font-size: 30px;
-    text-align: center;
-
+body{
+    background-size: cover;
 }
-
-
-.formulario{
+nav{
+    max-width: 900px;
+    margin: auto;
+    background-color: #333;
     font-size: 20px;
-    text-align: center;
-
+    margin-top: 50px;
 }
-footer {
-
-    color: black;
-}
-.hrpie{
-    width: 100%;
-    text-align: center;
-}
-
-
-header {
-    background: darkorchid;
-    width: 100%;
-    position: fixed;
-    z-index: 10;
-}
-
-nav {
-    float: left;
-}
-
-nav ul {
+.menu-horizontal{
     list-style: none;
-    overflow: hidden;
-
+    display: flex;
+    justify-content: space-around;
 }
-
-nav ul li {
-    float: left;
-    font-family: Arial, sans-serif;
-    font-size: 25px;
-}
-nav ul li a {
+.menu-horizontal > li > a{
     display: block;
-    padding: 10px;
+    padding: 15px 20px;
     color: white;
     text-decoration: none;
 }
-nav ul li:hover {
-    background: gold;
+.menu-horizontal > li:hover{
+    background-color: red;
 }
-table {
-    width: 100%;
-    border: 1px solid;
-    text-align: center;
-    border-collapse: collapse;
+.menu-vertical{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: rgba(0, 0, 0, .5);
+}
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+}
+.menu-vertical li:hover{
+    background-color: black;
+}
 
+.menu-vertical li a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 15px 15px 20px;
 }
-th, td {
-    vertical-align: top;
-    border: 1px solid #000;
-    border-spacing: 0;
-    padding: 2em;
-}
-.caption{
-    background: cadetblue;
-    text-align: center;
-}
-th{
-    text-align: left;
-}
-.footerEspacio{
-    padding-top: 5em;
+
+#html{
+    margin: auto;
+    padding: 20px;
+    max-width: 900px;
+    background: white;
+
 }
