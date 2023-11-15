@@ -9,22 +9,22 @@ import java.util.Objects;
 public class EmpleadoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_empleado")
+    @Column(name = "id_empleado", nullable = false)
     private int idEmpleado;
     @Basic
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, length = 45)
     private String email;
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = 45)
     private String password;
     @Basic
-    @Column(name = "telefono")
+    @Column(name = "telefono", nullable = true, length = 45)
     private String telefono;
     @Basic
-    @Column(name = "servicio_id_servicio")
+    @Column(name = "servicio_id_servicio", nullable = false)
     private int servicioIdServicio;
 
     public int getIdEmpleado() {

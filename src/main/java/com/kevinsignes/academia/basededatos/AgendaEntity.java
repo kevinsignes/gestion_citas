@@ -9,16 +9,16 @@ import java.util.Objects;
 public class AgendaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_agenda")
+    @Column(name = "id_agenda", nullable = false)
     private int idAgenda;
     @Basic
-    @Column(name = "fecha")
+    @Column(name = "fecha", nullable = false, length = 45)
     private String fecha;
     @Basic
-    @Column(name = "disponible")
+    @Column(name = "disponible", nullable = true, length = 45)
     private String disponible;
     @Basic
-    @Column(name = "empleado_id_empleado")
+    @Column(name = "empleado_id_empleado", nullable = false)
     private int empleadoIdEmpleado;
 
     public int getIdAgenda() {

@@ -9,22 +9,22 @@ import java.util.Objects;
 public class CitaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_cita")
+    @Column(name = "id_cita", nullable = false)
     private int idCita;
     @Basic
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", nullable = true, length = 500)
     private String descripcion;
     @Basic
-    @Column(name = "fecha")
+    @Column(name = "fecha", nullable = false, length = 45)
     private String fecha;
     @Basic
-    @Column(name = "estado")
+    @Column(name = "estado", nullable = true, length = 45)
     private String estado;
     @Basic
-    @Column(name = "empleado_id_empleado")
+    @Column(name = "empleado_id_empleado", nullable = false)
     private int empleadoIdEmpleado;
     @Basic
-    @Column(name = "cliente_id_cliente")
+    @Column(name = "cliente_id_cliente", nullable = false)
     private int clienteIdCliente;
 
     public int getIdCita() {

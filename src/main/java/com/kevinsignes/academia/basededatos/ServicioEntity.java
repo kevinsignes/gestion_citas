@@ -9,19 +9,19 @@ import java.util.Objects;
 public class ServicioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_servicio")
+    @Column(name = "id_servicio", nullable = false)
     private int idServicio;
     @Basic
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = true, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "categoria")
+    @Column(name = "categoria", nullable = true, length = 45)
     private String categoria;
     @Basic
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", nullable = true, length = 500)
     private String descripcion;
     @Basic
-    @Column(name = "precio")
+    @Column(name = "precio", nullable = true, length = 45)
     private String precio;
 
     public int getIdServicio() {
