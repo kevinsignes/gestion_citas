@@ -17,13 +17,13 @@
   <h1>Haz una Cita</h1>
   <div><label>Descripcion</label></div>
   <input type="text" th:field="*{descripcion}" name="descripcion" />
-  <div><label>Password</label></div>
-  <input type="text" th:field="*{fecha}" name="fecha"/>
-  <div><label>Nombre del cliente</label></div>
+  <div><label>Fecha</label></div>
+  <input type="date" th:field="*{fecha}" name="fecha"/>
+  <div><label>Estado</label></div>
   <input type="text" th:field="*{estado}" name="estado"/>
   <div><label>ID Empleado</label></div>
   <input type="number" th:field="*{empleadoIdEmpleado}" name="empleado_id_empleado"/>
-  <div><label>Apellido</label></div>
+  <div><label>ID Cliente</label></div>
   <input type="number" th:field="*{clienteIdCliente}" name="cliente_id_cliente"/>
   <button type="submit" value="Curso">Continue</button>
 </form>
