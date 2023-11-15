@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicio Formulario</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
+
+
+<form class="formulario" id="servicioform" th:action="@{/servicio/submit}" th:object="${servicio}" action="" method="post">
+  <h1>Servicio</h1>
+  <div><label>Nombre del Servicio</label></div>
+  <input type="text" th:field="*{nombre}" name="nombre" />
+  <div><label>Categoria</label></div>
+  <input type="text" th:field="*{categoria}" name="categoria"/>
+  <div><label>Descipcion</label></div>
+  <input type="text" th:field="*{descripcion}" name="descripcion"/>
+  <div><label>Precio</label></div>
+  <input type="text" th:field="*{precio}" name="precio"/>
+  <button type="submit" value="Curso">Continue</button>
+</form>
+
+</body>
+</html>

@@ -14,5 +14,30 @@
 
 
 
+<div>
+    <table class="table table-hover container">
+        <thead>
+        <tr>
+            <th class="caption">ID</th>
+            <th class="caption">Nombre del Servicio</th>
+            <th class="caption">Categoria</th>
+            <th class="caption">Descipcion</th>
+            <th class="caption">Precio</th>
+
+
+        </thead>
+        <tbody>
+        <tr th:each="servicio : ${servicio}">
+            <td  th:text="${servicio.idServicio}">ID</td>
+            <td th:text="${servicio.nombre}">Nombre del Servicio</td>
+            <td th:text="${servicio.categoria}">Categoria</td>
+            <td th:text="${servicio.descripcion}">Descipcion</td>
+            <td th:text="${servicio.precio}">Precio</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
 </body>
 </html>

@@ -1,8 +1,6 @@
 package com.kevinsignes.academia.controller;
 
-import com.kevinsignes.academia.basededatos.ClienteEntity;
 import com.kevinsignes.academia.basededatos.ServicioEntity;
-import com.kevinsignes.academia.repository.IClienteRepository;
 import com.kevinsignes.academia.repository.IServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,14 +23,14 @@ public class ServicioController {
         return "servicio";
     }
     @PostMapping("/servicio/submit")
-    public String processAsignatura(@ModelAttribute("servicio") ServicioEntity servicio) {
+    public String processServicio(@ModelAttribute("servicio") ServicioEntity servicio) {
         iServicioRepository.save(servicio);
         return "redirect:/servicio/all";
     }
     @GetMapping("/servicio/all")
-    public String processAsignaturaList(Model model) {
+    public String processServicioList(Model model) {
         List<ServicioEntity> servicioEntities = iServicioRepository.findAll();
         model.addAttribute("servicio",servicioEntities);
-        return "servicioListado";
+        return "inicio";
     }
 }
