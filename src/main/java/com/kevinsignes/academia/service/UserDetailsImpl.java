@@ -1,7 +1,6 @@
 package com.kevinsignes.academia.service;
 
 import com.kevinsignes.academia.basededatos.ClienteEntity;
-import com.kevinsignes.academia.basededatos.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

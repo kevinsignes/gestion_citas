@@ -18,19 +18,19 @@ public class ClienteController {
     private IClienteRepository iClienteRepository;
 
     @GetMapping({"/cliente"})
-    public String goTocurso(Model model){
+    public String goToservicio(Model model){
         model.addAttribute("cliente", new ClienteEntity());
         return "cliente";
     }
     @PostMapping("/cliente/submit")
-    public String processAsignatura(@ModelAttribute("asignatura") ClienteEntity cliente) {
+    public String processServicio(@ModelAttribute("servicio") ClienteEntity cliente) {
         iClienteRepository.save(cliente);
         return "redirect:/cliente/all";
     }
     @GetMapping("/cliente/all")
-    public String processAsignaturaList(Model model) {
+    public String processServicioList(Model model) {
         List<ClienteEntity> clienteEntities = iClienteRepository.findAll();
-        model.addAttribute("asignaturas",clienteEntities);
+        model.addAttribute("servicio",clienteEntities);
         return "clienteListado";
     }
 }

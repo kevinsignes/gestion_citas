@@ -1,7 +1,6 @@
 package com.kevinsignes.academia.repository;
 
 import com.kevinsignes.academia.basededatos.ClienteEntity;
-import com.kevinsignes.academia.basededatos.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
