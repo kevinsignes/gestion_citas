@@ -25,7 +25,7 @@ public class ClienteController {
     @PostMapping("/cliente/submit")
     public String processServicio(@ModelAttribute("servicio") ClienteEntity cliente) {
         iClienteRepository.save(cliente);
-        return "redirect:/cliente/all";
+        return "inicio";
     }
     @GetMapping("/cliente/all")
     public String processServicioList(Model model) {

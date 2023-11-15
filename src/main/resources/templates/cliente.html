@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REgistro de Cliente</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
+
+
+<form class="formulario" id="clienteform" th:action="@{/cliente/submit}" th:object="${cliente}" action="" method="post">
+  <h1>Registro  Cliente</h1>
+  <div><label>Usuario</label></div>
+  <input type="text" th:field="*{usuario}" name="usuario" />
+  <div><label>Password</label></div>
+  <input type="text" th:field="*{password}" name="password"/>
+  <div><label>Nombre del cliente</label></div>
+  <input type="text" th:field="*{nombre}" name="nombre"/>
+  <div><label>Apellido</label></div>
+  <input type="text" th:field="*{apellido}" name="apellido"/>
+  <button type="submit" value="Curso">Continue</button>
+</form>
+
+</body>
+</html>

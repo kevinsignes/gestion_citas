@@ -25,9 +25,9 @@ public class ServicioController {
     @PostMapping("/servicio/submit")
     public String processServicio(@ModelAttribute("servicio") ServicioEntity servicio) {
         iServicioRepository.save(servicio);
-        return "redirect:/servicio/all";
+        return "redirect:/inicio";
     }
-    @GetMapping("/servicio/all")
+    @GetMapping("/inicio")
     public String processServicioList(Model model) {
         List<ServicioEntity> servicioEntities = iServicioRepository.findAll();
         model.addAttribute("servicio",servicioEntities);
