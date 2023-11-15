@@ -21,13 +21,13 @@ public class CitaController {
 
     @GetMapping({"/cita"})
     public String goTocita(Model model){
-        model.addAttribute("cita", new AgendaEntity());
+        model.addAttribute("cita", new CitaEntity());
         return "cita";
     }
     @PostMapping("/cita/submit")
     public String processCita(@ModelAttribute("cita") CitaEntity cita) {
         iCitaRepository.save(cita);
-        return "redirect:/cita/all";
+        return "inicio";
     }
     @GetMapping("/cita/all")
     public String processCitaList(Model model) {

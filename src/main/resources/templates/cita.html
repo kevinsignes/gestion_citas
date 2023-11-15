@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cita Formulario </title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
+
+
+<form class="formulario" id="citaform" th:action="@{/cita/submit}" th:object="${cita}" action="" method="post">
+  <h1>Haz una Cita</h1>
+  <div><label>Descripcion</label></div>
+  <input type="text" th:field="*{descripcion}" name="descripcion" />
+  <div><label>Password</label></div>
+  <input type="text" th:field="*{fecha}" name="fecha"/>
+  <div><label>Nombre del cliente</label></div>
+  <input type="text" th:field="*{estado}" name="estado"/>
+  <div><label>ID Empleado</label></div>
+  <input type="number" th:field="*{empleadoIdEmpleado}" name="empleado_id_empleado"/>
+  <div><label>Apellido</label></div>
+  <input type="number" th:field="*{clienteIdCliente}" name="cliente_id_cliente"/>
+  <button type="submit" value="Curso">Continue</button>
+</form>
+
+</body>
+</html>
