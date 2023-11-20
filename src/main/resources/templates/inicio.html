@@ -33,6 +33,10 @@
             <td th:text="${servicio.categoria}">Categoria</td>
             <td th:text="${servicio.descripcion}">Descipcion</td>
             <td th:text="${servicio.precio}">Precio</td>
+            <td>
+                <a th:href="@{/editar/{id}(id=${servicio.idServicio})}" class="btn btn-info">Editar</a>
+                <a th:href="@{/borrar/{id}(id=${servicio.idServicio})}" class="btn btn-danger">Borrar</a>
+            </td>
         </tr>
         </tbody>
     </table>
