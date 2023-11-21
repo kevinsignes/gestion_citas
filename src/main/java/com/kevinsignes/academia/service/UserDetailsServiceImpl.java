@@ -13,8 +13,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private IClienteRepository userRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        ClienteEntity user = userRepo.findByClienteEntityName(username);
+    public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
+        ClienteEntity user = userRepo.findByClienteEntityName(usuario);
         if (user == null) {
             throw new UsernameNotFoundException("CLiente no encontrado");
         }
