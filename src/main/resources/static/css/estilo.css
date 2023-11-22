@@ -58,3 +58,11 @@ nav{
     background: white;
 
 }
+
+.estado-aceptado {
+    background-color: lightgreen;
+}
+
+.estado-denegado {
+    background-color: lightcoral;
+}

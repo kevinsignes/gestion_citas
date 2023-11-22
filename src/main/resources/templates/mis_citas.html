@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Inicio</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 <body>
@@ -12,38 +15,40 @@
   <header th:replace="header/nav :: mimenu"></header>
 </div>
 
+<div class="container text-center">
+  <div>
+    <h1>Lista de citas</h1>
+  </div>
 
+  <div>
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th class="caption">ID</th>
+        <th class="caption">Descrpcion</th>
+        <th class="caption">Fecha</th>
+        <th class="caption">Estado</th>
+        <th class="caption">Empleado ID</th>
+        <th class="caption">Cliente ID</th>
 
-<div>
-  <table class="table table-hover container">
-    <thead>
-    <tr>
-      <th class="caption">ID</th>
-      <th class="caption">Descrpcion</th>
-      <th class="caption">Fecha</th>
-      <th class="caption">Estado</th>
-      <th class="caption">Empleado ID</th>
-      <th class="caption">Cliente ID</th>
-
-
-    </thead>
-    <tbody>
-    <tr th:each="cita : ${cita}">
-      <td  th:text="${cita.idCita}">ID</td>
-      <td th:text="${cita.descripcion}">Descrpcion</td>
-      <td th:text="${cita.fecha}">Fecha</td>
-      <td th:text="${cita.estado}">Estado</td>
-      <td th:text="${cita.empleadoIdEmpleado}">Empleado ID</td>
-      <td th:text="${cita.clienteIdCliente}">CLiente ID</td>
-      <td>
-        <a th:href="@{/cita/editar/{id}(id=${cita.idCita})}" class="btn btn-info">Editar</a>
-        <a th:href="@{/cita/borrar/{id}(id=${cita.idCita})}" class="btn btn-danger">Borrar</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <tr th:each="cita : ${cita}" th:class="${'estado-' + cita.estado}">
+        <td  th:text="${cita.idCita}">ID</td>
+        <td th:text="${cita.descripcion}">Descrpcion</td>
+        <td th:text="${cita.fecha}">Fecha</td>
+        <td th:text="${cita.estado}">Estado</td>
+        <td th:text="${cita.empleadoIdEmpleado}">Empleado ID</td>
+        <td th:text="${cita.clienteIdCliente}">CLiente ID</td>
+        <td>
+          <a th:href="@{/cita/editar/{id}(id=${cita.idCita})}" class="btn btn-info">Editar</a>
+          <a th:href="@{/cita/borrar/{id}(id=${cita.idCita})}" class="btn btn-danger">Borrar</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
 
 </body>
 </html>
