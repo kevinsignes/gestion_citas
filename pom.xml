@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.kevinsignes</groupId>
-    <artifactId>Academia</artifactId>
+    <artifactId>Gestion_citas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Gestion_citas</name>
     <description>Gestion_citas</description>

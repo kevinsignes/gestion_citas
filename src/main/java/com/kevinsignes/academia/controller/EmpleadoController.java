@@ -26,7 +26,7 @@ public class EmpleadoController {
     @PostMapping("/empleado/submit")
     public String processEmpleado(@ModelAttribute("empleado") EmpleadoEntity empleado) {
         iEmpleadoRepository.save(empleado);
-        return "redirect:/empleado/all";
+        return "redirect:/inicio";
     }
     @GetMapping("/empleado/all")
     public String processEmpleadoList(Model model) {

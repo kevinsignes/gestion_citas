@@ -2,14 +2,13 @@ package com.kevinsignes.academia.controller;
 
 import com.kevinsignes.academia.basededatos.AgendaEntity;
 import com.kevinsignes.academia.basededatos.CitaEntity;
+import com.kevinsignes.academia.basededatos.ServicioEntity;
 import com.kevinsignes.academia.repository.IAgendaRepository;
 import com.kevinsignes.academia.repository.ICitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,12 +26,32 @@ public class CitaController {
     @PostMapping("/cita/submit")
     public String processCita(@ModelAttribute("cita") CitaEntity cita) {
         iCitaRepository.save(cita);
-        return "inicio";
+        return "redirect:/mis_citas";
     }
-    @GetMapping("/cita/all")
+    @GetMapping("/mis_citas")
     public String processCitaList(Model model) {
         List<CitaEntity> citaEntities = iCitaRepository.findAll();
         model.addAttribute("cita",citaEntities);
-        return "citaListado";
+        return "mis_citas";
+    }
+    @RequestMapping("/cita/editar/{id}")
+    public String editarServicio(@PathVariable int id, Model modelo){
+
+        modelo.addAttribute("cita",
+                iCitaRepository.findById(id).get());
+        return "editar_cita";
+    }
+
+
+    @PostMapping ("/cita/actualizar")
+    public String actualizaCita(@ModelAttribute("servicio") CitaEntity citaEntity){
+        iCitaRepository.save(citaEntity);
+        return "redirect:/mis_citas";
+    }
+
+    @GetMapping ("/cita/borrar/{id}")
+    public String borrarCita(@PathVariable int id){
+        iCitaRepository.deleteById(id);
+        return "redirect:/mis_citas";
     }
 }

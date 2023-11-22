@@ -1,6 +1,5 @@
 package com.kevinsignes.academia.security;
 
-import com.kevinsignes.academia.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-
+/*
     @Bean
     public UserDetailsServiceImpl userDetailsService(){
         return new UserDetailsServiceImpl();
@@ -30,7 +29,7 @@ public class SecurityConfig {
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
-    }
+    }*/
 
 
     @Bean

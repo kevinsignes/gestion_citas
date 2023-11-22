@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
+
+
+<div>
+  <table class="table table-hover container">
+    <thead>
+    <tr>
+      <th class="caption">ID</th>
+      <th class="caption">Descrpcion</th>
+      <th class="caption">Fecha</th>
+      <th class="caption">Estado</th>
+      <th class="caption">Empleado ID</th>
+      <th class="caption">Cliente ID</th>
+
+
+    </thead>
+    <tbody>
+    <tr th:each="cita : ${cita}">
+      <td  th:text="${cita.idCita}">ID</td>
+      <td th:text="${cita.descripcion}">Descrpcion</td>
+      <td th:text="${cita.fecha}">Fecha</td>
+      <td th:text="${cita.estado}">Estado</td>
+      <td th:text="${cita.empleadoIdEmpleado}">Empleado ID</td>
+      <td th:text="${cita.clienteIdCliente}">CLiente ID</td>
+      <td>
+        <a th:href="@{/cita/editar/{id}(id=${cita.idCita})}" class="btn btn-info">Editar</a>
+        <a th:href="@{/cita/borrar/{id}(id=${cita.idCita})}" class="btn btn-danger">Borrar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

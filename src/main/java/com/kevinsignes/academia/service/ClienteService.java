@@ -6,19 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class UserDetailsServiceImpl implements UserDetailsService {
+@Service
+public class ClienteService implements UserDetailsService {
 
     @Autowired
-    private IClienteRepository userRepo;
+    private IClienteRepository clienteRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
-        ClienteEntity user = userRepo.findByClienteEntityName(usuario);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        ClienteEntity user = clienteRepository.findByCliente(username);
         if (user == null) {
-            throw new UsernameNotFoundException("CLiente no encontrado");
+            throw new UsernameNotFoundException("User not found");
         }
-        return new UserDetailsImpl(user);
+        return null;
     }
-
 }

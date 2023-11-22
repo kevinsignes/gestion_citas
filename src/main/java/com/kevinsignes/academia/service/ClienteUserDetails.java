@@ -6,14 +6,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class UserDetailsImpl implements UserDetails {
+public class ClienteUserDetails implements UserDetails {
 
-    private ClienteEntity user;
+    private ClienteEntity cliente;
 
-    public UserDetailsImpl(ClienteEntity user) {
-        this.user = user;
+    public ClienteUserDetails(ClienteEntity cliente){
+        this.cliente = cliente;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -21,33 +20,35 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return cliente.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsuario();
+        return cliente.getUsuario();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
     }
 
+    public String getFullName() {
+        return cliente.getNombre() + " " + cliente.getApellido();
+    }
 }
-
