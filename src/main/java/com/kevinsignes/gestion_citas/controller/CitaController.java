@@ -1,10 +1,7 @@
-package com.kevinsignes.academia.controller;
+package com.kevinsignes.gestion_citas.controller;
 
-import com.kevinsignes.academia.basededatos.AgendaEntity;
-import com.kevinsignes.academia.basededatos.CitaEntity;
-import com.kevinsignes.academia.basededatos.ServicioEntity;
-import com.kevinsignes.academia.repository.IAgendaRepository;
-import com.kevinsignes.academia.repository.ICitaRepository;
+import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
+import com.kevinsignes.gestion_citas.repository.ICitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,16 +1,13 @@
-package com.kevinsignes.academia.controller;
+package com.kevinsignes.gestion_citas.controller;
 
-import com.kevinsignes.academia.basededatos.ServicioEntity;
-import com.kevinsignes.academia.repository.IServicioRepository;
+import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
+import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ServicioController {

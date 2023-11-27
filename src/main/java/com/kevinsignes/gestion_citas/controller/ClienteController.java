@@ -1,8 +1,9 @@
-package com.kevinsignes.academia.controller;
+package com.kevinsignes.gestion_citas.controller;
 
-import com.kevinsignes.academia.basededatos.ClienteEntity;
-import com.kevinsignes.academia.repository.IClienteRepository;
+import com.kevinsignes.gestion_citas.basededatos.ClienteEntity;
+import com.kevinsignes.gestion_citas.repository.IClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,19 +19,22 @@ public class ClienteController {
     private IClienteRepository iClienteRepository;
 
     @GetMapping({"/cliente"})
-    public String goToservicio(Model model){
+    public String goTocliente(Model model){
         model.addAttribute("cliente", new ClienteEntity());
         return "cliente";
     }
     @PostMapping("/cliente/submit")
-    public String processServicio(@ModelAttribute("servicio") ClienteEntity cliente) {
+    public String processRegisterCliente(ClienteEntity cliente) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(cliente.getPassword());
+        cliente.setPassword(encodedPassword);
         iClienteRepository.save(cliente);
         return "redirect:/inicio";
     }
     @GetMapping("/cliente/all")
-    public String processServicioList(Model model) {
+    public String processClienteList(Model model) {
         List<ClienteEntity> clienteEntities = iClienteRepository.findAll();
-        model.addAttribute("servicio",clienteEntities);
+        model.addAttribute("cliente",clienteEntities);
         return "clienteListado";
     }
 

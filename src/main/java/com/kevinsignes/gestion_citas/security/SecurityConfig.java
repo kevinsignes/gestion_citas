@@ -1,5 +1,6 @@
-package com.kevinsignes.academia.security;
+package com.kevinsignes.gestion_citas.security;
 
+import com.kevinsignes.gestion_citas.service.ClienteDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -13,10 +14,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig  {
 
-/*
+
     @Bean
-    public UserDetailsServiceImpl userDetailsService(){
-        return new UserDetailsServiceImpl();
+    public ClienteDetailsServiceImpl userDetailsService(){
+        return new ClienteDetailsServiceImpl();
     }
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -26,13 +27,14 @@ public class SecurityConfig  {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
-    }*/
+    }
 
-
+/*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -48,6 +50,24 @@ public class SecurityConfig  {
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/index").permitAll();
+
+        return http.build();
+    }*/
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests()
+                .requestMatchers("/user").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .usernameParameter("usuario")
+                .loginPage("/login")
+                .defaultSuccessUrl("/inicio") //TODO:
+                .permitAll()
+                .and()
+                .logout().logoutSuccessUrl("/").permitAll();
 
         return http.build();
     }

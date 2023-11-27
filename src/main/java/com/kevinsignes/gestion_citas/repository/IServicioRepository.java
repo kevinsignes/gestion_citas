@@ -1,7 +1,7 @@
-package com.kevinsignes.academia.repository;
+package com.kevinsignes.gestion_citas.repository;
 
 
-import com.kevinsignes.academia.basededatos.ServicioEntity;
+import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

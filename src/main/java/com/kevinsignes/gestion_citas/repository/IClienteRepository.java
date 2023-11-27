@@ -1,12 +1,14 @@
-package com.kevinsignes.academia.repository;
+package com.kevinsignes.gestion_citas.repository;
 
-import com.kevinsignes.academia.basededatos.ClienteEntity;
+import com.kevinsignes.gestion_citas.basededatos.ClienteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.Optional;
-
 public interface IClienteRepository extends JpaRepository<ClienteEntity, Integer> {
+
+
     @Query("SELECT u FROM ClienteEntity u WHERE u.usuario = ?1")
     public ClienteEntity findByCliente(String usuario);
+
+
 }

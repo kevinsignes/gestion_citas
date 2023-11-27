@@ -12,7 +12,7 @@
     <header th:replace="header/nav :: mimenu"></header>
   </div>
 
-
+<!--
   <h2>Login</h2>
   <form th:action="@{/login}" method="post">
     <label for="usuario">Username:</label>
@@ -23,7 +23,19 @@
     <br>
     <button type="submit">Login</button>
     <small class="text-muted"><a th:href="@{/cliente}">Register</a></small>
-  </form>
+  </form>-->
+
+
+
+    <form id="loginform" th:action="@{/login}" method="POST" role="form" >
+      <h1>Login</h1>
+      <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+      <br>
+      <input type="password" name="password" id="password" placeholder="Password">
+      <hr>
+      <button type="submit">Continue</button>
+      <small class="text-muted"><a href="/auth/register">Register here!</a></small>
+    </form>
 </main>
 </body>
 </html>

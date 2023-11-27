@@ -1,4 +1,4 @@
-package com.kevinsignes.academia.basededatos;
+package com.kevinsignes.gestion_citas.basededatos;
 
 import jakarta.persistence.*;
 

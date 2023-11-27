@@ -1,7 +1,6 @@
-package com.kevinsignes.academia.repository;
+package com.kevinsignes.gestion_citas.repository;
 
-import com.kevinsignes.academia.basededatos.AgendaEntity;
-import com.kevinsignes.academia.basededatos.CitaEntity;
+import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
