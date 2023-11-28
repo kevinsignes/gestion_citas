@@ -66,3 +66,27 @@ nav{
 .estado-denegado {
     background-color: lightcoral;
 }
+
+.fondo{
+    background: url(/img/fondo_pantalla_trabajo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+.texto_pagina_entrada{
+    text-align: center;
+    text-transform: uppercase;
+    font: "arial";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: gold;
+    padding: 2em;
+
+}
+.texto{
+    font-size: 10mm;
+}
+
