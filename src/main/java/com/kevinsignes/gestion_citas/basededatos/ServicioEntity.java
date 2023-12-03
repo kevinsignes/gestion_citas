@@ -12,17 +12,20 @@ public class ServicioEntity {
     @Column(name = "id_servicio", nullable = false)
     private int idServicio;
     @Basic
-    @Column(name = "nombre", nullable = true, length = 45)
+    @Column(name = "nombre", nullable = false, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "categoria", nullable = true, length = 45)
+    @Column(name = "categoria", nullable = false, length = 45)
     private String categoria;
     @Basic
-    @Column(name = "descripcion", nullable = true, length = 500)
+    @Column(name = "descripcion", nullable = false, length = 45)
     private String descripcion;
     @Basic
-    @Column(name = "precio", nullable = true, length = 45)
+    @Column(name = "precio", nullable = false, length = 45)
     private String precio;
+    @Basic
+    @Column(name = "empleado_id_empleado", nullable = false)
+    private int empleadoIdEmpleado;
 
     public int getIdServicio() {
         return idServicio;
@@ -64,16 +67,24 @@ public class ServicioEntity {
         this.precio = precio;
     }
 
+    public int getEmpleadoIdEmpleado() {
+        return empleadoIdEmpleado;
+    }
+
+    public void setEmpleadoIdEmpleado(int empleadoIdEmpleado) {
+        this.empleadoIdEmpleado = empleadoIdEmpleado;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ServicioEntity that = (ServicioEntity) o;
-        return idServicio == that.idServicio && Objects.equals(nombre, that.nombre) && Objects.equals(categoria, that.categoria) && Objects.equals(descripcion, that.descripcion) && Objects.equals(precio, that.precio);
+        return idServicio == that.idServicio && empleadoIdEmpleado == that.empleadoIdEmpleado && Objects.equals(nombre, that.nombre) && Objects.equals(categoria, that.categoria) && Objects.equals(descripcion, that.descripcion) && Objects.equals(precio, that.precio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idServicio, nombre, categoria, descripcion, precio);
+        return Objects.hash(idServicio, nombre, categoria, descripcion, precio, empleadoIdEmpleado);
     }
 }

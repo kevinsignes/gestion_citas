@@ -1,5 +1,6 @@
 package com.kevinsignes.gestion_citas.controller;
 
+import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
 import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +16,26 @@ public class ServicioController {
     @Autowired
     private IServicioRepository iServicioRepository;
 
+
+
     @GetMapping({"/servicio"})
     public String goToservicio(Model model){
         model.addAttribute("servicio", new ServicioEntity());
         return "servicio";
+    }
+
+
+    @PostMapping("/guardar")
+    public String guardarCita(@ModelAttribute("servicio") ServicioEntity servicio) {
+        iServicioRepository.save(servicio);
+        return "redirect:/mis_citas";
     }
     @PostMapping("/servicio/submit")
     public String processServicio(@ModelAttribute("servicio") ServicioEntity servicio) {
         iServicioRepository.save(servicio);
         return "redirect:/inicio";
     }
-    @GetMapping("/inicio")
-    public String processServicioList(Model model) {
-        List<ServicioEntity> servicioEntities = iServicioRepository.findAll();
-        model.addAttribute("servicio",servicioEntities);
-        return "inicio";
-    }
+
 
     @RequestMapping ("/editar/{id}")
     public String editarServicio(@PathVariable int id, Model modelo){
@@ -51,5 +56,16 @@ public class ServicioController {
         iServicioRepository.deleteById(id);
         return "redirect:/inicio";
     }
+
+
+    @GetMapping("/inicio")
+    public String processServicioList(Model model) {
+        List<ServicioEntity> servicioEntities = iServicioRepository.findAll();
+        model.addAttribute("servicio",servicioEntities);
+        return "inicio";
+    }
+
+
+
 
 }

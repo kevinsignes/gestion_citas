@@ -27,6 +27,8 @@ public class CitaEntity {
     @Column(name = "cliente_id_cliente", nullable = false)
     private int clienteIdCliente;
 
+
+
     public int getIdCita() {
         return idCita;
     }

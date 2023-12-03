@@ -1,17 +1,17 @@
 package com.kevinsignes.gestion_citas.service;
 
-import com.kevinsignes.gestion_citas.basededatos.ClienteEntity;
+import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class ClienteDetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
-    private ClienteEntity cliente;
+    private UserEntity user;
 
-    public ClienteDetailsImpl(ClienteEntity cliente) {
-        this.cliente = cliente;
+    public UserDetailsImpl(UserEntity cliente) {
+        this.user = cliente;
     }
 
     @Override
@@ -21,12 +21,12 @@ public class ClienteDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return cliente.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return cliente.getUsuario();
+        return user.getUsuario();
     }
 
     @Override

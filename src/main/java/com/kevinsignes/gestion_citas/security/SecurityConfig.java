@@ -1,6 +1,6 @@
 package com.kevinsignes.gestion_citas.security;
 
-import com.kevinsignes.gestion_citas.service.ClienteDetailsServiceImpl;
+import com.kevinsignes.gestion_citas.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,8 +16,8 @@ public class SecurityConfig  {
 
 
     @Bean
-    public ClienteDetailsServiceImpl userDetailsService(){
-        return new ClienteDetailsServiceImpl();
+    public UserDetailsServiceImpl userDetailsService(){
+        return new UserDetailsServiceImpl();
     }
     @Bean
     public PasswordEncoder passwordEncoder() {

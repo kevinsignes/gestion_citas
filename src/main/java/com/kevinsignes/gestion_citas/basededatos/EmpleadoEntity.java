@@ -23,9 +23,6 @@ public class EmpleadoEntity {
     @Basic
     @Column(name = "telefono", nullable = true, length = 45)
     private String telefono;
-    @Basic
-    @Column(name = "servicio_id_servicio", nullable = false)
-    private int servicioIdServicio;
 
     public int getIdEmpleado() {
         return idEmpleado;
@@ -67,24 +64,16 @@ public class EmpleadoEntity {
         this.telefono = telefono;
     }
 
-    public int getServicioIdServicio() {
-        return servicioIdServicio;
-    }
-
-    public void setServicioIdServicio(int servicioIdServicio) {
-        this.servicioIdServicio = servicioIdServicio;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmpleadoEntity that = (EmpleadoEntity) o;
-        return idEmpleado == that.idEmpleado && servicioIdServicio == that.servicioIdServicio && Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(telefono, that.telefono);
+        return idEmpleado == that.idEmpleado &&  Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(telefono, that.telefono);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEmpleado, nombre, email, password, telefono, servicioIdServicio);
+        return Objects.hash(idEmpleado, nombre, email, password, telefono);
     }
 }

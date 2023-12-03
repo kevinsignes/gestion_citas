@@ -16,7 +16,7 @@
 </div>
 
 <div class="container text-center">
-
+    <a th:href="@{/cita}" class="btn btn-info">Crear Cita</a>
     <div>
         <h1>Lista de Servicios</h1>
     </div>
@@ -30,9 +30,11 @@
                 <th class="caption">Categoria</th>
                 <th class="caption">Descipcion</th>
                 <th class="caption">Precio</th>
+                <th class="caption">EmpleadoID</th>
 
 
             </thead>
+
             <tbody>
             <tr th:each="servicio : ${servicio}">
                 <td  th:text="${servicio.idServicio}">ID</td>
@@ -40,12 +42,15 @@
                 <td th:text="${servicio.categoria}">Categoria</td>
                 <td th:text="${servicio.descripcion}">Descipcion</td>
                 <td th:text="${servicio.precio}">Precio</td>
+                <td th:text="${servicio.empleadoIdEmpleado}">N* de refencia Empleado</td>
                 <td>
                     <a th:href="@{/editar/{id}(id=${servicio.idServicio})}" class="btn btn-info">Editar</a>
                     <a th:href="@{/borrar/{id}(id=${servicio.idServicio})}" class="btn btn-danger">Borrar</a>
+
                 </td>
             </tr>
             </tbody>
+
         </table>
     </div>
 </div>
