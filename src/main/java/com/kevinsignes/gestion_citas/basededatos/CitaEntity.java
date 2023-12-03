@@ -21,13 +21,11 @@ public class CitaEntity {
     @Column(name = "estado", nullable = true, length = 45)
     private String estado;
     @Basic
-    @Column(name = "empleado_id_empleado", nullable = false)
-    private int empleadoIdEmpleado;
+    @Column(name = "servicio_id_servicio", nullable = false)
+    private int servicioIdServicio;
     @Basic
-    @Column(name = "cliente_id_cliente", nullable = false)
-    private int clienteIdCliente;
-
-
+    @Column(name = "User_id_user", nullable = false)
+    private int userIdUser;
 
     public int getIdCita() {
         return idCita;
@@ -61,20 +59,20 @@ public class CitaEntity {
         this.estado = estado;
     }
 
-    public int getEmpleadoIdEmpleado() {
-        return empleadoIdEmpleado;
+    public int getServicioIdServicio() {
+        return servicioIdServicio;
     }
 
-    public void setEmpleadoIdEmpleado(int empleadoIdEmpleado) {
-        this.empleadoIdEmpleado = empleadoIdEmpleado;
+    public void setServicioIdServicio(int servicioIdServicio) {
+        this.servicioIdServicio = servicioIdServicio;
     }
 
-    public int getClienteIdCliente() {
-        return clienteIdCliente;
+    public int getUserIdUser() {
+        return userIdUser;
     }
 
-    public void setClienteIdCliente(int clienteIdCliente) {
-        this.clienteIdCliente = clienteIdCliente;
+    public void setUserIdUser(int userIdUser) {
+        this.userIdUser = userIdUser;
     }
 
     @Override
@@ -82,11 +80,11 @@ public class CitaEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CitaEntity that = (CitaEntity) o;
-        return idCita == that.idCita && empleadoIdEmpleado == that.empleadoIdEmpleado && clienteIdCliente == that.clienteIdCliente && Objects.equals(descripcion, that.descripcion) && Objects.equals(fecha, that.fecha) && Objects.equals(estado, that.estado);
+        return idCita == that.idCita && servicioIdServicio == that.servicioIdServicio && userIdUser == that.userIdUser && Objects.equals(descripcion, that.descripcion) && Objects.equals(fecha, that.fecha) && Objects.equals(estado, that.estado);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCita, descripcion, fecha, estado, empleadoIdEmpleado, clienteIdCliente);
+        return Objects.hash(idCita, descripcion, fecha, estado, servicioIdServicio, userIdUser);
     }
 }

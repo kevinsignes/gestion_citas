@@ -46,14 +46,6 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-4 col-form-label">Id Servicio: </label>
-        <div class="col-8">
-          <input type="text" th:field="*{servicioIdServicio}" class="form-control"
-                 required minlength="9" maxlength="20" />
-        </div>
-      </div>
-
       <div>
         <button type="submit" class="btn btn-primary">Registrarse</button>
       </div>
@@ -61,20 +53,7 @@
   </form>
 </div>
 
-<!--<form class="formulario" id="empleadoform" th:action="@{/empleado/submit}" th:object="${empleado}" action="" method="post">
-  <h1>Registro de Empleado</h1>
-  <div><label>Nombre de Empleado</label></div>
-  <input type="text" th:field="*{nombre}" name="nombre" />
-  <div><label>Email</label></div>
-  <input type="text" th:field="*{email}" name="email"/>
-  <div><label>Password</label></div>
-  <input type="text" th:field="*{password}" name="password"/>
-  <div><label>Telefono (Opcional)</label></div>
-  <input type="text" th:field="*{telefono}" name="precio"/>
-  <div><label>Id Servicio</label></div>
-  <input type="number" th:field="*{servicioIdServicio}" name="servicio_id_servicio"/>
-  <button type="submit" value="Curso">Continue</button>
-</form>-->
+
 
 </body>
 </html>

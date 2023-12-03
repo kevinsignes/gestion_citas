@@ -21,7 +21,7 @@ public class EmpleadoEntity {
     @Column(name = "password", nullable = false, length = 45)
     private String password;
     @Basic
-    @Column(name = "telefono", nullable = true, length = 45)
+    @Column(name = "telefono", nullable = false, length = 45)
     private String telefono;
 
     public int getIdEmpleado() {
@@ -69,7 +69,7 @@ public class EmpleadoEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmpleadoEntity that = (EmpleadoEntity) o;
-        return idEmpleado == that.idEmpleado &&  Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(telefono, that.telefono);
+        return idEmpleado == that.idEmpleado && Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(telefono, that.telefono);
     }
 
     @Override

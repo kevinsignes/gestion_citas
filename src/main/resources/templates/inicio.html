@@ -30,7 +30,7 @@
                 <th class="caption">Categoria</th>
                 <th class="caption">Descipcion</th>
                 <th class="caption">Precio</th>
-                <th class="caption">EmpleadoID</th>
+                <th class="caption">Codigo de Empleado</th>
 
 
             </thead>
@@ -42,7 +42,7 @@
                 <td th:text="${servicio.categoria}">Categoria</td>
                 <td th:text="${servicio.descripcion}">Descipcion</td>
                 <td th:text="${servicio.precio}">Precio</td>
-                <td th:text="${servicio.empleadoIdEmpleado}">N* de refencia Empleado</td>
+                <td th:text="${servicio.empleadoIdEmpleado}">Codigo de Empleado</td>
                 <td>
                     <a th:href="@{/editar/{id}(id=${servicio.idServicio})}" class="btn btn-info">Editar</a>
                     <a th:href="@{/borrar/{id}(id=${servicio.idServicio})}" class="btn btn-danger">Borrar</a>

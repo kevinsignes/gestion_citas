@@ -1,6 +1,5 @@
 package com.kevinsignes.gestion_citas.controller;
 
-import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
 import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
