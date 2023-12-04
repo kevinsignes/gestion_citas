@@ -34,7 +34,7 @@ public class SecurityConfig  {
         return authProvider;
     }
 
-/*
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -52,8 +52,8 @@ public class SecurityConfig  {
                 .logout().logoutSuccessUrl("/index").permitAll();
 
         return http.build();
-    }*/
-
+    }
+/*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -70,6 +70,6 @@ public class SecurityConfig  {
                 .logout().logoutSuccessUrl("/").permitAll();
 
         return http.build();
-    }
+    }*/
 
 }

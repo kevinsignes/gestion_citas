@@ -1,5 +1,6 @@
 package com.kevinsignes.gestion_citas.controller;
 
+
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,25 +16,27 @@ public class UserController {
 
 
     @Autowired
-    private IUserRepository iClienteRepository;
+    private IUserRepository iUserRepository;
 
-    @GetMapping({"/cliente"})
-    public String goTocliente(Model model){
-        model.addAttribute("cliente", new UserEntity());
-        return "cliente";
+    @GetMapping({"/crear_user"})
+    public String goToUser(Model model){
+        model.addAttribute("user", new UserEntity());
+        return "crear_user";
     }
-    @PostMapping("/cliente/submit")
-    public String processRegisterCliente(UserEntity user) {
+    @PostMapping("/user/submit")
+    public String processRegisterUser(UserEntity user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        iClienteRepository.save(user);
+        iUserRepository.save(user);
         return "redirect:/inicio";
     }
-    @GetMapping("/cliente/all")
+
+
+    @GetMapping("/user/all")
     public String processClienteList(Model model) {
-        List<UserEntity> clienteEntities = iClienteRepository.findAll();
-        model.addAttribute("cliente",clienteEntities);
+        List<UserEntity> clienteEntities = iUserRepository.findAll();
+        model.addAttribute("user",clienteEntities);
         return "clienteListado";
     }
 
