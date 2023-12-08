@@ -24,23 +24,24 @@
         method="post" style="max-width: 600px; margin: 0 auto;">
     <div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripcion</label>
+        <label for="exampleFormControlTextarea1">Descripcion :</label>
         <textarea class="form-control" th:field="*{descripcion}" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Fecha</label>
-        <input type="date" class="form-control" th:field="*{fecha}" id="exampleInputEmail1" aria-describedby="emailHelp" >
-        <small id="emailHelp" class="form-text text-muted">No eligas una fecha pasada sino el empleado te negara la cita.</small>
+        <label for="exampleInputEmail1">Fecha :</label>
+        <input type="date" name="fecha" class="form-control" th:field="*{fecha}" id="exampleInputEmail1" aria-describedby="emailHelp" min="" required>
       </div>
 
+
+
       <div class="form-group">
-        <label for="exampleInputEmail1">Codigo de Usuario</label>
+        <label for="exampleInputEmail1">Codigo de Usuario :</label>
         <input type="text" class="form-control"  th:field="*{userIdUser}"  >
       </div>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Cliente Id</label>
+        <label for="exampleInputEmail1">Servicio Codigo :</label>
         <input type="text" class="form-control"  th:field="*{servicioIdServicio}"  >
       </div>
 
@@ -50,5 +51,25 @@
     </div>
   </form>
 </div>
+
+
+
+<script>
+  // Obtener el elemento por el atributo 'name'
+  var fechaInput = document.getElementsByName('fecha')[0];
+
+  // Obtener la fecha actual
+  var fechaActual = new Date();
+
+  // Sumar 7 días a la fecha actual
+  fechaActual.setDate(fechaActual.getDate() + 7);
+
+  // Formatear la fecha en el formato necesario para el atributo 'min'
+  var fechaMinima = fechaActual.toISOString().split('T')[0];
+
+  // Establecer el valor mínimo en el campo de fecha
+  fechaInput.min = fechaMinima;
+</script>
+
 </body>
 </html>

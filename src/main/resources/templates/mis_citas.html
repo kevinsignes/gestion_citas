@@ -28,8 +28,8 @@
         <th class="caption">Descrpcion</th>
         <th class="caption">Fecha</th>
         <th class="caption">Estado</th>
-        <th class="caption">Empleado ID</th>
-        <th class="caption">Cliente ID</th>
+        <th class="caption">Codigo Servicio</th>
+        <th class="caption">Codigo Usuario</th>
 
       </thead>
       <tbody>
@@ -38,8 +38,8 @@
         <td th:text="${cita.descripcion}">Descrpcion</td>
         <td th:text="${cita.fecha}">Fecha</td>
         <td th:text="${cita.estado}">Estado</td>
-        <td th:text="${cita.empleadoIdEmpleado}">Empleado ID</td>
-        <td th:text="${cita.clienteIdCliente}">CLiente ID</td>
+        <td th:text="${cita.servicioIdServicio}">Servicio ID</td>
+        <td th:text="${cita.userIdUser}">Usuario ID</td>
         <td>
           <a th:href="@{/cita/editar/{id}(id=${cita.idCita})}" class="btn btn-info">Editar</a>
           <a th:href="@{/cita/borrar/{id}(id=${cita.idCita})}" class="btn btn-danger">Borrar</a>

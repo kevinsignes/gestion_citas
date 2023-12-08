@@ -17,21 +17,21 @@
         method="post" style="max-width: 600px; margin: 0 auto;">
     <div class="m-3">
       <div class="form-group row">
-        <label class="col-4 col-form-label">Nombre de Empleado: </label>
+        <label class="col-4 col-form-label">Nombre del servicio: </label>
         <div class="col-8">
           <input type="text" th:field="*{nombre}" class="form-control" required />
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-4 col-form-label">Email: </label>
+        <label class="col-4 col-form-label">Categoria: </label>
         <div class="col-8">
           <input type="text" th:field="*{categoria}" class="form-control"/>
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-4 col-form-label">Password: </label>
+        <label class="col-4 col-form-label">Descripcion del servicio: </label>
         <div class="col-8">
           <input type="text" th:field="*{descripcion}" class="form-control"/>
         </div>
@@ -52,7 +52,7 @@
       </div>
 
       <div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-primary">Crear Servicio</button>
       </div>
     </div>
   </form>

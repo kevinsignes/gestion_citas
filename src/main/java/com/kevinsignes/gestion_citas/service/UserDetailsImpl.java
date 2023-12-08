@@ -10,8 +10,8 @@ public class UserDetailsImpl implements UserDetails {
 
     private UserEntity user;
 
-    public UserDetailsImpl(UserEntity cliente) {
-        this.user = cliente;
+    public UserDetailsImpl(UserEntity user) {
+        this.user = user;
     }
 
     @Override

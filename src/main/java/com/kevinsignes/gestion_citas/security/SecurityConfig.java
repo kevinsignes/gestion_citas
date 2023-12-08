@@ -44,12 +44,12 @@ public class SecurityConfig  {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .usernameParameter("username")
+                .usernameParameter("usuario")
                 .loginPage("/login")
-                .defaultSuccessUrl("/index") //TODO:
+                .defaultSuccessUrl("/inicio") //TODO:
                 .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/index").permitAll();
+                .logout().logoutSuccessUrl("/").permitAll();
 
         return http.build();
     }
@@ -62,9 +62,9 @@ public class SecurityConfig  {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .usernameParameter("usuario")
+                .usernameParameter("email")
                 .loginPage("/login")
-                .defaultSuccessUrl("/inicio") //TODO:
+                .defaultSuccessUrl("/changeme") //TODO:
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
