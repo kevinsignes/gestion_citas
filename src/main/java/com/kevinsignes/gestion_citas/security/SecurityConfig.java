@@ -49,7 +49,7 @@ public class SecurityConfig  {
                 .formLogin()
                 .usernameParameter("usuario")
                 .loginPage("/login")
-                .defaultSuccessUrl("/") //TODO:
+                .defaultSuccessUrl("/informacion") //TODO:
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();

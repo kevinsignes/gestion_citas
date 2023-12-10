@@ -15,7 +15,7 @@ public class UserEntity {
     @Column(name = "usuario", nullable = false, length = 45)
     private String usuario;
     @Basic
-    @Column(name = "password", nullable = false, length = 45)
+    @Column(name = "password")
     private String password;
     @Basic
     @Column(name = "nombre", nullable = false, length = 45)
@@ -26,6 +26,20 @@ public class UserEntity {
     @Basic
     @Column(name = "apellido2", nullable = false, length = 45)
     private String apellido2;
+
+
+    public UserEntity(int idUser, String usuario, String password, String nombre, String apellido1, String apellido2) {
+        this.idUser = idUser;
+        this.usuario = usuario;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+    }
+
+    public UserEntity() {
+
+    }
 
     public int getIdUser() {
         return idUser;
@@ -80,11 +94,12 @@ public class UserEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserEntity that = (UserEntity) o;
-        return idUser == that.idUser && Objects.equals(usuario, that.usuario) && Objects.equals(password, that.password) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido1, that.apellido1) && Objects.equals(apellido2, that.apellido2);
+        return idUser == that.idUser && Objects.equals(usuario, that.usuario);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUser, usuario, password, nombre, apellido1, apellido2);
+
+        return Objects.hash(idUser, usuario);
     }
 }

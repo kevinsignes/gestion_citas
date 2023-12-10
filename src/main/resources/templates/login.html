@@ -7,15 +7,17 @@
 </head>
 <body>
 <main>
-    <form id="loginform" th:action="@{/login}" method="POST" role="form" >
-      <h1>Login</h1>
-      <input type="text" name="usuario" id="usuario" placeholder="Usuario">
-      <br>
-      <input type="password" name="password" id="password" placeholder="Password">
-      <hr>
-        <input class="button" type="submit" value="Login In">
-      <a href="/crear_user">Register here!</a></small>
-    </form>
+    <main>
+        <form id="loginform" th:action="@{/login}" method="POST" role="form" >
+            <h1>Login</h1>
+            <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <hr>
+            <button type="submit">Continue</button>
+            <small class="text-muted"><a href="/crear_user">Register here!</a></small>
+        </form>
+    </main>
 </main>
 </body>
 </html>

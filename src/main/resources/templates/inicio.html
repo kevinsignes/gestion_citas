@@ -16,10 +16,24 @@
 </div>
 
 <div class="container text-center">
+    <img class="text-center" src="/img/logoPrincipal.png">
+</div>
+
+<div class="container text-center">
     <a th:href="@{/cita}" class="btn btn-info">Crear Cita</a>
     <div>
         <h1>Lista de Servicios</h1>
     </div>
+
+    <!-- Formulario de búsqueda -->
+    <form action="/servicios/buscar" method="GET" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar servicios..." name="busqueda">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </div>
+        </div>
+    </form>
 
     <div class="card-deck" >
         <table class="table table-striped table-bordered" >
