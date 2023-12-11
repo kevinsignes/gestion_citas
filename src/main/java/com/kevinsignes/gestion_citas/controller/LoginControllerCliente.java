@@ -1,6 +1,7 @@
 package com.kevinsignes.gestion_citas.controller;
 
 
+import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginControllerCliente {
     @Autowired
-    private IUserRepository iClienteRepository;
+    private  IUserRepository iUserRepository;
+
+
 
     @GetMapping({"/login"})
     public String goToLogin(Model model){
@@ -33,5 +36,6 @@ public class LoginControllerCliente {
     public String goToInforPerfil(Model model){
         return "informacion";
     }
+
 
 }

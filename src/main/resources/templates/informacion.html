@@ -2,12 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Mi Perfil</title>
 </head>
 <body>
 <h2>Bienvenido, <span th:text="${#authentication.name}"></span>!</h2>
 <form th:action="@{/logout}" method="post">
   <button type="submit">Logout</button>
+
+  <h2>Mi Perfil</h2>
+    <!--<h2>Bienvenido, <span th:text="${username}"></span>!</h2>
+    <p>Nombre de Usuario: <span th:text="${usuario}"></span></p>
+        <p>Nombre: <span th:text="${usuario.nombre}"></span></p>
+        <p>Apellido 1: <span th:text="${usuario.apellido1}"></span></p>
+        <p>Apellido 2: <span th:text="${usuario.apellido2}"></span></p>
+      -->
+
 </form>
 </body>
 </html>
