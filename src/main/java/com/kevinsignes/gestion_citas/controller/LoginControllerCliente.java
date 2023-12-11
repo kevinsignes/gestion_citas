@@ -29,4 +29,9 @@ public class LoginControllerCliente {
         return "redirect:/inicio";
     }
 
+    @GetMapping({"/informacion"})
+    public String goToInforPerfil(Model model){
+        return "informacion";
+    }
+
 }
