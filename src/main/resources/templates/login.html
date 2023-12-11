@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>Login</title>
-  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container text-center">
+    <div>
+        <h1>Iniciar Sesion</h1>
+    </div>
+    <form id="loginform" th:action="@{/login}" method="POST" role="form" >
+        <div class="container text-center">
+            <div >
+                <label >Nombre de Usuario: </label>
+                <div >
+                    <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+                </div>
+            </div>
+
+            <div >
+                <label >Password: </label>
+                <div >
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+<br>
+            <div>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
+
+<!--
+
 <main>
-    <main>
         <form id="loginform" th:action="@{/login}" method="POST" role="form" >
             <h1>Login</h1>
             <input type="text" name="usuario" id="usuario" placeholder="Usuario">
@@ -18,19 +52,5 @@
             <small class="text-muted"><a href="/crear_user">Register here!</a></small>
         </form>
     </main>
-</main>
-</body>
-</html>
 
-<!--
-  <h2>Login</h2>
-  <form th:action="@{/login}" method="post">
-    <label for="usuario">Username:</label>
-    <input type="text" id="usuario" name="usuario" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Login</button>
-    <small class="text-muted"><a th:href="@{/cliente}">Register</a></small>
-  </form>-->
+  -->
