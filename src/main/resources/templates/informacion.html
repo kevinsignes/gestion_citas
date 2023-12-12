@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Mi Perfil</title>
+
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 <body>
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+
 <h2>Bienvenido, <span th:text="${#authentication.name}"></span>!</h2>
 <form th:action="@{/logout}" method="post">
   <button type="submit">Logout</button>
-
-  <h2>Mi Perfil</h2>
-    <!--<h2>Bienvenido, <span th:text="${username}"></span>!</h2>
-    <p>Nombre de Usuario: <span th:text="${usuario}"></span></p>
-        <p>Nombre: <span th:text="${usuario.nombre}"></span></p>
-        <p>Apellido 1: <span th:text="${usuario.apellido1}"></span></p>
-        <p>Apellido 2: <span th:text="${usuario.apellido2}"></span></p>
-      -->
-
 </form>
+  <h2>Mi Perfil</h2>
+
+<h1>Información del Usuario</h1>
+<p>CODIGO DE USUARIO : <span th:text="${usuario.idUser}"></span></p>
+<p>Usuario : <span th:text="${usuario.usuario}"></span></p>
+<p>Password : <span th:text="${usuario.password}"></span></p>
+<p>Nombre : <span th:text="${usuario.nombre}"></span></p>
+<p>APellido1 : <span th:text="${usuario.apellido1}"></span></p>
+<p>Apellido2 : <span th:text="${usuario.apellido2}"></span></p>
+
 </body>
 </html>

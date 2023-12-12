@@ -1,6 +1,7 @@
 package com.kevinsignes.gestion_citas.controller;
 
 
+
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +11,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 
 @Controller
 public class LoginControllerCliente {
     @Autowired
     private  IUserRepository iUserRepository;
-
 
 
     @GetMapping({"/login"})
@@ -32,10 +34,17 @@ public class LoginControllerCliente {
         return "redirect:/inicio";
     }
 
-    @GetMapping({"/informacion"})
-    public String goToInforPerfil(Model model){
+
+    @GetMapping("/informacion")
+    public String verUsuarioActual(Authentication authentication, Model model) {
+        String nombreUsuario = authentication.getName();
+        Optional<UserEntity> usuario = Optional.ofNullable(iUserRepository.findByUsuario(nombreUsuario));
+
+        usuario.ifPresent(u -> {
+            model.addAttribute("usuario", u);
+        });
+
         return "informacion";
     }
-
 
 }

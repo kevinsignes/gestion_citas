@@ -2,6 +2,7 @@ package com.kevinsignes.gestion_citas.basededatos;
 
 import jakarta.persistence.*;
 
+
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,7 @@ public class UserEntity {
     @Basic
     @Column(name = "apellido2", nullable = false, length = 45)
     private String apellido2;
+
 
 
     public UserEntity(int idUser, String usuario, String password, String nombre, String apellido1, String apellido2) {

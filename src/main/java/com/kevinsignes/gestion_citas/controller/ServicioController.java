@@ -64,19 +64,5 @@ public class ServicioController {
         return "inicio";
     }
 
-    @GetMapping("/servicios/buscar")
-    public String buscarServicios(@RequestParam(name = "busqueda", required = false) String busqueda, Model model) {
-        // Aquí deberías implementar la lógica de búsqueda en tu servicio
-        // En este ejemplo, se asume que tienes un servicio llamado servicioService que tiene un método de búsqueda
-
-        // Puedes cambiar "servicioService.buscarServicios(busqueda)" por la lógica de búsqueda real
-        model.addAttribute("servicios", iServicioRepository.findByServicioEntity(busqueda));
-
-        // También puedes agregar otros atributos al modelo según sea necesario
-
-        // Devuelve la vista que muestra los resultados de la búsqueda
-        return "vista-de-resultados";
-    }
-
 
 }

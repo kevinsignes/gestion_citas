@@ -26,14 +26,6 @@
     </div>
 
     <!-- Formulario de búsqueda -->
-    <form action="/servicios/buscar" method="GET" class="mb-3">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar servicios..." name="busqueda">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
-            </div>
-        </div>
-    </form>
 
     <div class="card-deck" >
         <table class="table table-striped table-bordered" >
@@ -55,7 +47,6 @@
                 <div class="card-body">
                 <td>CODIGO DEL SERVICIO</td>
                 <td class="card-title text-right"  th:text="${servicio.idServicio}"></td>
-                    <td><hr></td>
                 <td class="card-text" th:text="${servicio.nombre}">Nombre del Servicio</td>
                 <td class="card-text" th:text="${servicio.categoria}">Categoria</td>
                 <td class="card-text" th:text="${servicio.descripcion}">Descipcion</td>

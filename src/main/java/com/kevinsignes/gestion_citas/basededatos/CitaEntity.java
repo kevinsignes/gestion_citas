@@ -87,4 +87,11 @@ public class CitaEntity {
     public int hashCode() {
         return Objects.hash(idCita, descripcion, fecha, estado, servicioIdServicio, userIdUser);
     }
+
+
+
+
+
+
+
 }
