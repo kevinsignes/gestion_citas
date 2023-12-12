@@ -67,6 +67,10 @@ nav{
     background-color: lightcoral;
 }
 
+.estado-pendiente {
+    background-color: orange;
+}
+
 .fondo{
     background: url(/img/fondo_pantalla_trabajo.jpg);
     background-size: cover;

@@ -15,16 +15,16 @@
         <th scope="col">Descripcion</th>
         <th scope="col">Fecha</th>
         <th scope="col">Estado</th>
-        <th scope="col">Empleaod ID</th>
-        <th scope="col">Cliente ID</th>
+        <th scope="col">Codigo Servico</th>
+        <th scope="col">Codigo Usuario</th>
       </thead>
       <tbody>
       <th><input type="text" name="idCita" th:field="*{idCita}" class="form-control" placeholder="Nº de servcio" required></th>
       <td><input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="Nombre" required></td>
       <td><input type="text" name="fecha" th:field="*{fecha}" class="form-control" placeholder="Categoria" required></td>
       <td><input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="Descripcion" required></td>
-      <td><input type="text" name="empleadoIdEmpleado" th:field="*{empleadoIdEmpleado}" class="form-control" placeholder="Precio" required></td>
-      <td><input type="text" name="clienteIdCliente" th:field="*{clienteIdCliente}" class="form-control" placeholder="Precio" required></td>
+      <td><input type="text" name="empleadoIdEmpleado" th:field="*{servicioIdServicio}" class="form-control" placeholder="Precio" required></td>
+      <td><input type="text" name="clienteIdCliente" th:field="*{userIdUser}" class="form-control" placeholder="Precio" required></td>
       <td><button class="btn btn-success" >Actualizar</button></td>
       </tbody>
     </table>

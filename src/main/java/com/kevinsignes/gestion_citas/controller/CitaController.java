@@ -6,6 +6,7 @@ import com.kevinsignes.gestion_citas.repository.ICitaRepository;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,9 @@ public class CitaController {
 
     @Autowired
     private ICitaRepository iCitaRepository;
+
+    @Autowired
+    private IUserRepository iUserRepository;
 
 
     @GetMapping({"/cita"})
@@ -55,6 +59,30 @@ public class CitaController {
     public String borrarCita(@PathVariable int id){
         iCitaRepository.deleteById(id);
         return "redirect:/mis_citas";
+    }
+
+    @GetMapping("/citas_usuario")
+    public String mostrarCitasUsuarioActual(Model model) {
+        // Obtener la información de autenticación del usuario actual
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String nombreUsuario = authentication.getName();
+
+        // Buscar al usuario actual por su nombre de usuario
+        UserEntity usuarioActual = iUserRepository.findByUsuario(nombreUsuario);
+
+        if (usuarioActual != null) {
+            // Obtener todas las citas del usuario actual
+            List<CitaEntity> citasUsuarioActual = iCitaRepository.findAllByUserId(usuarioActual.getIdUser());
+
+            // Agregar la lista de citas al modelo
+            model.addAttribute("citas", citasUsuarioActual);
+
+            // Retornar la vista
+            return "citas_usuario";
+        } else {
+            // Manejar el caso en el que el usuario no se encuentra
+            return "redirect:/error";
+        }
     }
 
 }
