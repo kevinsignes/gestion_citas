@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Perfil</title>
+
+  <title>Mi Perfil Informacion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
@@ -12,6 +17,38 @@
   <header th:replace="header/nav :: mimenu"></header>
 </div>
 
+<div class="container text-center">
+<div  class="panel panel-default">
+  <div class="panel-heading"><h1>Bienvenido, <span th:text="${#authentication.name}"></span>!</h1></div>
+  <div class="panel-body">
+    <h2>CODIGO DE USUARIO : <span th:text="${usuario.idUser}"></span> </h2>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3  class="panel-title"><h2>Mi Perfil</h2></h3>
+  </div>
+  <div class="panel-body">
+    <h3>Información del Usuario</h3>
+    <p>Usuario : <span th:text="${usuario.usuario}"></span></p>
+    <p>Password : <span th:text="${usuario.password}"></span></p>
+    <p>Nombre : <span th:text="${usuario.nombre}"></span></p>
+    <p>APellido1 : <span th:text="${usuario.apellido1}"></span></p>
+    <p>Apellido2 : <span th:text="${usuario.apellido2}"></span></p>
+
+    <form th:action="@{/logout}" method="post">
+      <button class="btn btn-danger" type="submit">Logout</button>
+    </form>
+
+  </div>
+</div>
+
+
+</div>
+
+
+<!--
 <h2>Bienvenido, <span th:text="${#authentication.name}"></span>!</h2>
 <form th:action="@{/logout}" method="post">
   <button type="submit">Logout</button>
@@ -25,6 +62,6 @@
 <p>Nombre : <span th:text="${usuario.nombre}"></span></p>
 <p>APellido1 : <span th:text="${usuario.apellido1}"></span></p>
 <p>Apellido2 : <span th:text="${usuario.apellido2}"></span></p>
-
+-->
 </body>
 </html>

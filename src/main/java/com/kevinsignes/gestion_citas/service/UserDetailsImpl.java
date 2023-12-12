@@ -1,5 +1,6 @@
 package com.kevinsignes.gestion_citas.service;
 
+
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

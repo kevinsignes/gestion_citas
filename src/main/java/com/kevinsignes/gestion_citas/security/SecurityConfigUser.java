@@ -10,6 +10,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigUser {
@@ -54,23 +58,6 @@ public class SecurityConfigUser {
     }
 
 
-/*
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests()
-                .requestMatchers("/user").authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
-                .usernameParameter("email")
-                .loginPage("/login")
-                .defaultSuccessUrl("/changeme") //TODO:
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();
 
-        return http.build();
-    }*/
 
 }
