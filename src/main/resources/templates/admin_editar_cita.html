@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Editar Cita</title>
+  <title>Editar Cita Admin</title>
 </head>
 <body>
 
 <div class="container">
-  <form th:action="@{/cita/actualizar}" th:object="${cita}" method="post">
+  <form th:action="@{/admin/cita/actualizar}" th:object="${cita}" method="post">
     <table class="table table-sm">
       <thead>
       <tr>
@@ -22,7 +22,7 @@
       <th><input type="text" name="idCita" th:field="*{idCita}" class="form-control" placeholder="idCita" required readonly></th>
       <td><input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="descripcion" required></td>
       <td><input type="text" name="fecha" th:field="*{fecha}" class="form-control" placeholder="fecha" required></td>
-      <td><input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="estado" required readonly></td>
+      <td><input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="estado" required></td>
       <td><input type="text" name="empleadoIdEmpleado" th:field="*{servicioIdServicio}" class="form-control" placeholder="servicioIdServicio" required></td>
       <td><input type="text" name="clienteIdCliente" th:field="*{userIdUser}" class="form-control" placeholder="userIdUser" required></td>
       <td><button class="btn btn-success" >Actualizar</button></td>

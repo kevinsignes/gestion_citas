@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<div>
+    <header th:replace="header/nav :: mimenu"></header>
+</div>
+    <div th:if="${#authentication.name == 'admin'}">
+        <div class="container text-center">
+            <div  class="panel panel-default">
+                <div class="panel-heading"><h1>Bienvenido, <span th:text="${#authentication.name}"></span>!</h1></div>
+                <div class="panel-body">
+                    <p>
+                        <a th:href="@{/cita}">
+                            <button  class="btn btn-primary">Crear cita</button>
+                        </a>
+                    </p>
+                    <p>
+                        <a th:href="@{/empleado}">
+                            <button  class="btn btn-primary">Crear empleado</button>
+                        </a>
+                    </p>
+                    <p>
+                        <a th:href="@{/servicio}">
+                            <button  class="btn btn-primary">Crear servicio</button>
+                        </a>
+                    </p>
+                    <p>
+                        <a th:href="@{/crear_user}">
+                            <button  class="btn btn-primary">Crear Usuario</button>
+                        </a>
+                    </p>
+                    <p>
+                        <a th:href="@{/listaCita}">
+                            <button  class="btn btn-primary">Lista Citas</button>
+                        </a>
+                    </p>
+                    <p>
+                        <a th:href="@{/listaServicio}">
+                            <button  class="btn btn-primary">Lista Servicios</button>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

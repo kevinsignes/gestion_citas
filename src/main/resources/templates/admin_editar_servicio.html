@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Servicio Admin</title>
+</head>
+<body>
+
+<div class="container">
+  <form th:action="@{/admin/actualizar}" th:object="${servicio}" method="post">
+    <table class="table table-sm">
+      <thead>
+      <tr>
+        <th scope="col">#idUsuario</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">EmpleadoId</th>
+      </thead>
+      <tbody>
+      <th><input type="text" name="idServicio" th:field="*{idServicio}" class="form-control" placeholder="idServicio" required></th>
+      <td><input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="nombre" required></td>
+      <td><input type="text" name="categoria" th:field="*{categoria}" class="form-control" placeholder="categoria" required></td>
+      <td><input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="descripcion" required></td>
+      <td><input type="text" name="precio" th:field="*{precio}" class="form-control" placeholder="Precio" required></td>
+      <td><input type="text" name="precio" th:field="*{empleadoIdEmpleado}" class="form-control" placeholder="empleado_id_empleado" required></td>
+      <td><button class="btn btn-success" >Actualizar</button></td>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+
+</body>
+</html>

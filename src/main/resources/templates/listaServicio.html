@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
+<div class="container text-center">
+    <h1>Lista de Servicios</h1>
+
+  <div>
+    <table class="table table-striped table-bordered" >
+
+      <thead class="thead-dark">
+      <tr>
+          <th class="caption">ID</th>
+          <th class="caption">Nombre del Servicio</th>
+          <th class="caption">Categoria</th>
+          <th class="caption">Descipcion</th>
+          <th class="caption">Precio</th>
+          <th class="caption">Codigo de Empleado</th>
+
+
+      </thead>
+
+      <tbody>
+      <tr   th:each="servicio : ${servicio}">
+        <div>
+          <td class="card-title text-right"  th:text="${servicio.idServicio}"></td>
+          <td class="card-text" th:text="${servicio.nombre}">Nombre del Servicio</td>
+          <td class="card-text" th:text="${servicio.categoria}">Categoria</td>
+          <td class="card-text" th:text="${servicio.descripcion}">Descipcion</td>
+          <td class="card-text" th:text="${servicio.precio}">Precio</td>
+          <td class="card-text" th:text="${servicio.empleadoIdEmpleado}">Codigo de Empleado</td>
+          <td>
+            <a th:href="@{/admin/editar/{id}(id=${servicio.idServicio})}" class="btn btn-info">Editar</a>
+            <a th:href="@{/admin/borrar/{id}(id=${servicio.idServicio})}" class="btn btn-danger">Borrar</a>
+
+          </td>
+        </div>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+</body>
+</html>

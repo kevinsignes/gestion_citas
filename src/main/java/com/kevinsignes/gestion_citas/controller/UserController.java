@@ -43,12 +43,4 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/user/all")
-    public String processClienteList(Model model) {
-        List<UserEntity> clienteEntities = iUserRepository.findAll();
-        model.addAttribute("user",clienteEntities);
-        return "clienteListado";
-    }
-
-
 }

@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class CitaController {
@@ -23,7 +22,6 @@ public class CitaController {
     @Autowired
     private IUserRepository iUserRepository;
 
-
     @GetMapping({"/cita"})
     public String goTocita(Model model){
         model.addAttribute("cita", new CitaEntity());
@@ -32,14 +30,9 @@ public class CitaController {
     @PostMapping("/cita/submit")
     public String processCita(@ModelAttribute("cita") CitaEntity cita) {
         iCitaRepository.save(cita);
-        return "redirect:/mis_citas";
+        return "redirect:/citas_usuario";
     }
-    @GetMapping("/mis_citas")
-    public String processCitaList(Model model) {
-        List<CitaEntity> citaEntities = iCitaRepository.findAll();
-        model.addAttribute("cita",citaEntities);
-        return "mis_citas";
-    }
+
     @RequestMapping("/cita/editar/{id}")
     public String editarServicio(@PathVariable int id, Model modelo){
 
@@ -52,13 +45,13 @@ public class CitaController {
     @PostMapping ("/cita/actualizar")
     public String actualizaCita(@ModelAttribute("servicio") CitaEntity citaEntity){
         iCitaRepository.save(citaEntity);
-        return "redirect:/mis_citas";
+        return "redirect:/citas_usuario";
     }
 
     @GetMapping ("/cita/borrar/{id}")
     public String borrarCita(@PathVariable int id){
         iCitaRepository.deleteById(id);
-        return "redirect:/mis_citas";
+        return "redirect:/citas_usuario";
     }
 
     @GetMapping("/citas_usuario")
