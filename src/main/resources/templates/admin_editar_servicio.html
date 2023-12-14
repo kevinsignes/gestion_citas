@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Editar Servicio Admin</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 <body>
 
@@ -19,7 +23,7 @@
         <th scope="col">EmpleadoId</th>
       </thead>
       <tbody>
-      <th><input type="text" name="idServicio" th:field="*{idServicio}" class="form-control" placeholder="idServicio" required></th>
+      <th><input type="text" name="idServicio" th:field="*{idServicio}" class="form-control" placeholder="idServicio" required readonly></th>
       <td><input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="nombre" required></td>
       <td><input type="text" name="categoria" th:field="*{categoria}" class="form-control" placeholder="categoria" required></td>
       <td><input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="descripcion" required></td>

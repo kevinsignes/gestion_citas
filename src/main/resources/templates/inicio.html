@@ -44,13 +44,16 @@
             <tbody>
             <tr   th:each="servicio : ${servicio}" class="card mb-3">
                 <div class="card-body">
-                <td>CODIGO DEL SERVICIO</td>
+                    <td><b>CODIGO DEL SERVICIO</b></td>
                 <td class="card-title text-right"  th:text="${servicio.idServicio}"></td>
+                    <td><b>Nombre Servicio</b></td>
                 <td class="card-text" th:text="${servicio.nombre}">Nombre del Servicio</td>
+                    <td><b>Categoria</b></td>
                 <td class="card-text" th:text="${servicio.categoria}">Categoria</td>
+                    <td><b>Descripcion Del Servicio</b></td>
                 <td class="card-text" th:text="${servicio.descripcion}">Descipcion</td>
+                    <td><b>Precio</b></td>
                 <td class="card-text" th:text="${servicio.precio}">Precio</td>
-                <td class="card-text" th:text="${servicio.empleadoIdEmpleado}">Codigo de Empleado</td>
                 <td>
                     <a th:href="@{/cita}" class="btn btn-info">Crear Cita</a>
                 </td>

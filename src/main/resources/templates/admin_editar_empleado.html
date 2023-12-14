@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Servicio Admin</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+
+<div class="container">
+  <form th:action="@{/admin/actualizar/empleado}" th:object="${empleado}" method="post">
+    <table class="table table-sm">
+      <thead>
+      <tr>
+        <th scope="col">#idUser</th>
+        <th scope="col">usuario</th>
+        <th scope="col">password</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido1</th>
+        <th scope="col">apellido2</th>
+      </thead>
+      <tbody>
+      <th><input type="text" name="idServicio" th:field="*{i}" class="form-control" placeholder="idUser" required readonly></th>
+      <td><input type="text" name="nombre" th:field="*{usuario}" class="form-control" placeholder="usuario" required></td>
+      <td><input type="text" name="categoria" th:field="*{password}" class="form-control" placeholder="password" required readonly></td>
+      <td><input type="text" name="descripcion" th:field="*{nombre}" class="form-control" placeholder="nombre" required></td>
+      <td><input type="text" name="precio" th:field="*{apellido1}" class="form-control" placeholder="apellido1" required></td>
+      <td><input type="text" name="precio" th:field="*{apellido2}" class="form-control" placeholder="apellido2" required></td>
+      <td><button class="btn btn-success" >Actualizar</button></td>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+
+</body>
+</html>

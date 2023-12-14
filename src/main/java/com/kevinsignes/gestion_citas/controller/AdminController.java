@@ -1,9 +1,11 @@
 package com.kevinsignes.gestion_citas.controller;
 
 import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
+import com.kevinsignes.gestion_citas.basededatos.EmpleadoEntity;
 import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.ICitaRepository;
+import com.kevinsignes.gestion_citas.repository.IEmpleadoRepository;
 import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class AdminController {
 
     @Autowired
     private IUserRepository iUserRepository;
+    @Autowired
+    private IEmpleadoRepository iEmpleadoRepository;
 
 
     @GetMapping({"/admin"})
@@ -108,39 +112,63 @@ public class AdminController {
 
     /**Paginas para el USER*/
 
-/*
+
 
     @GetMapping("/listaUser")
-    public String processClienteList(Model model) {
-        List<UserEntity> clienteEntities = iUserRepository.findAll();
-        model.addAttribute("user",clienteEntities);
+    public String processUserList(Model model) {
+        List<UserEntity> userEntities = iUserRepository.findAll();
+        model.addAttribute("user",userEntities);
         return "listaUser";
     }
 
-    @PostMapping("/admin/servicio/submit")
-    public String processGuardarUser(@ModelAttribute("servicio") ServicioEntity servicio) {
-        iServicioRepository.save(servicio);
-        return "redirect:/listaServicio";
-    }
 
-
-    @RequestMapping ("/admin/editar/{id}")
+    @RequestMapping ("/admin/editar/user/{id}")
     public String editarUser(@PathVariable int id, Model modelo){
 
-        modelo.addAttribute("servicio",
-                iServicioRepository.findById(id).get());
-        return "admin_editar_servicio";
+        modelo.addAttribute("user",
+                iUserRepository.findById(id).get());
+        return "admin_editar_user";
     }
 
-    @PostMapping ("/admin/actualizar")
-    public String actualizaUser(@ModelAttribute("servicio") ServicioEntity servicioEntity){
-        iServicioRepository.save(servicioEntity);
-        return "redirect:/listaServicio";
+    @PostMapping ("/admin/actualizar/user")
+    public String actualizaUser(@ModelAttribute("user") UserEntity user){
+        iUserRepository.save(user);
+        return "redirect:/listaUser";
     }
 
-    @GetMapping ("/admin/borrar/{id}")
+    @GetMapping ("/admin/borrar/user/{id}")
     public String borrarUser(@PathVariable int id){
-        iServicioRepository.deleteById(id);
-        return "redirect:/listaServicio";
-    }*/
+        iUserRepository.deleteById(id);
+        return "redirect:/listaUser";
+    }
+
+    /**Paginas de Empleado*/
+
+    @GetMapping("/listaEmpleado")
+    public String processEmpleadoList(Model model) {
+        List<EmpleadoEntity> empleadoEntities = iEmpleadoRepository.findAll();
+        model.addAttribute("empleado",empleadoEntities);
+        return "listaEmpleado";
+    }
+
+
+    @RequestMapping ("/admin/editar/empleado/{id}")
+    public String editarEmpleado(@PathVariable int id, Model modelo){
+
+        modelo.addAttribute("empleado",
+                iEmpleadoRepository.findByEmpleadoEntity(String.valueOf(id)));
+        return "admin_editar_empleado";
+    }
+
+    @PostMapping ("/admin/actualizar/empleado")
+    public String actualizaEmpleado(@ModelAttribute("empleado") EmpleadoEntity empleado){
+        iEmpleadoRepository.save(empleado);
+        return "redirect:/listaEmpleado";
+    }
+
+    @GetMapping ("/admin/borrar/empleado/{id}")
+    public String borrarEmpleado(@PathVariable int id){
+        iEmpleadoRepository.deleteById(id);
+        return "redirect:/listaEmpleado";
+    }
 }
