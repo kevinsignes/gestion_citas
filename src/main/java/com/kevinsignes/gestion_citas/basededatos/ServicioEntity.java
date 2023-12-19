@@ -18,7 +18,7 @@ public class ServicioEntity {
     @Column(name = "categoria", nullable = false, length = 45)
     private String categoria;
     @Basic
-    @Column(name = "descripcion", nullable = false, length = 45)
+    @Column(name = "descripcion", nullable = false, length = 500)
     private String descripcion;
     @Basic
     @Column(name = "precio", nullable = false, length = 45)

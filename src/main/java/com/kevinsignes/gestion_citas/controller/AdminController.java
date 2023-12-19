@@ -156,12 +156,12 @@ public class AdminController {
     public String editarEmpleado(@PathVariable int id, Model modelo){
 
         modelo.addAttribute("empleado",
-                iEmpleadoRepository.findByEmpleadoEntity(String.valueOf(id)));
+                iEmpleadoRepository.findById(id).get());
         return "admin_editar_empleado";
     }
 
     @PostMapping ("/admin/actualizar/empleado")
-    public String actualizaEmpleado(@ModelAttribute("empleado") EmpleadoEntity empleado){
+    public String actualizaEmpleados(@ModelAttribute("empleado") EmpleadoEntity empleado){
         iEmpleadoRepository.save(empleado);
         return "redirect:/listaEmpleado";
     }
