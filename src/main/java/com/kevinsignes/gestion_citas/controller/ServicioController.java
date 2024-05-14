@@ -15,8 +15,6 @@ public class ServicioController {
     @Autowired
     private IServicioRepository iServicioRepository;
 
-
-
     @GetMapping({"/servicio"})
     public String goToservicio(Model model){
         model.addAttribute("servicio", new ServicioEntity());
@@ -63,6 +61,28 @@ public class ServicioController {
         model.addAttribute("servicio",servicioEntities);
         return "inicio";
     }
+    @GetMapping("/buscar")
+    public String mostrarPaginaBusqueda() {
+        return "buscar";
+    }
 
+    @PostMapping("/buscar")
+    public String buscarPorNombre(@RequestParam("query") String query, Model model) {
+        List<ServicioEntity> resultados = iServicioRepository.buscarPorNombre(query);
+        model.addAttribute("resultados", resultados);
 
+        System.out.println(resultados);
+
+        return "buscar";
+    }
+
+    @PostMapping("/buscarCategoria")
+    public String buscarPorCategoria(@RequestParam("query") String query, Model model) {
+        List<ServicioEntity> resultados = iServicioRepository.buscarPorCategoria(query);
+        model.addAttribute("resultados", resultados);
+
+        System.out.println(resultados);
+
+        return "buscar";
+    }
 }

@@ -1,11 +1,9 @@
 package com.kevinsignes.gestion_citas.controller;
 
 import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
-import com.kevinsignes.gestion_citas.basededatos.EmpleadoEntity;
 import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.ICitaRepository;
-import com.kevinsignes.gestion_citas.repository.IEmpleadoRepository;
 import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +22,6 @@ public class AdminController {
 
     @Autowired
     private IUserRepository iUserRepository;
-    @Autowired
-    private IEmpleadoRepository iEmpleadoRepository;
 
 
     @GetMapping({"/admin"})
@@ -142,33 +138,4 @@ public class AdminController {
         return "redirect:/listaUser";
     }
 
-    /**Paginas de Empleado*/
-
-    @GetMapping("/listaEmpleado")
-    public String processEmpleadoList(Model model) {
-        List<EmpleadoEntity> empleadoEntities = iEmpleadoRepository.findAll();
-        model.addAttribute("empleado",empleadoEntities);
-        return "listaEmpleado";
-    }
-
-
-    @RequestMapping ("/admin/editar/empleado/{id}")
-    public String editarEmpleado(@PathVariable int id, Model modelo){
-
-        modelo.addAttribute("empleado",
-                iEmpleadoRepository.findById(id).get());
-        return "admin_editar_empleado";
-    }
-
-    @PostMapping ("/admin/actualizar/empleado")
-    public String actualizaEmpleados(@ModelAttribute("empleado") EmpleadoEntity empleado){
-        iEmpleadoRepository.save(empleado);
-        return "redirect:/listaEmpleado";
-    }
-
-    @GetMapping ("/admin/borrar/empleado/{id}")
-    public String borrarEmpleado(@PathVariable int id){
-        iEmpleadoRepository.deleteById(id);
-        return "redirect:/listaEmpleado";
-    }
 }

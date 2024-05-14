@@ -10,31 +10,35 @@
 </head>
 <body>
 
-<div class="container">
-    <form th:action="@{/admin/actualizar/user}" th:object="${user}" method="post">
-        <table class="table table-sm">
-            <thead>
-            <tr>
-                <th scope="col">#idUser</th>
-                <th scope="col">usuario</th>
-                <th scope="col">password</th>
-                <th scope="col">nombre</th>
-                <th scope="col">apellido1</th>
-                <th scope="col">apellido2</th>
-            </thead>
-            <tbody>
-            <th><input type="text" name="idServicio" th:field="*{idUser}" class="form-control" placeholder="idUser" required readonly></th>
-            <td><input type="text" name="nombre" th:field="*{usuario}" class="form-control" placeholder="usuario" required></td>
-            <td><input type="text" name="categoria" th:field="*{password}" class="form-control" placeholder="password" required readonly></td>
-            <td><input type="text" name="descripcion" th:field="*{nombre}" class="form-control" placeholder="nombre" required></td>
-            <td><input type="text" name="precio" th:field="*{apellido1}" class="form-control" placeholder="apellido1" required></td>
-            <td><input type="text" name="precio" th:field="*{apellido2}" class="form-control" placeholder="apellido2" required></td>
-            <td><button class="btn btn-success" >Actualizar</button></td>
-            </tbody>
-        </table>
+<div class="container text-center" >
+    <form th:action="@{/admin/actualizar/user}" th:object="${user}" method="post" style="max-width: 400px; margin: 0 auto;">
+        <div class="form-group">
+            <label for="idUser">IDCita</label>
+            <input type="text" id="idUser" name="idUser" th:field="*{idUser}" class="form-control" placeholder="idUser" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="usuario">Descripcion</label>
+            <input type="text" id="usuario" name="usuario" th:field="*{usuario}" class="form-control" placeholder="usuario" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Fecha</label>
+            <input type="text" id="password" name="password" th:field="*{password}" class="form-control" placeholder="password" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Estado</label>
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" class="form-control" placeholder="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="apellido1">Codigo Servico</label>
+            <input type="text" id="apellido1" name="apellido1" th:field="*{apellido1}" class="form-control" placeholder="apellido1" required>
+        </div>
+        <div class="form-group">
+            <label for="apellido2">Codigo Usuario</label>
+            <input type="text" id="apellido2" name="apellido2" th:field="*{apellido2}" class="form-control" placeholder="apellido2" required>
+        </div>
+        <button type="submit" class="btn btn-success">Actualizar</button>
     </form>
 </div>
-
 
 </body>
 </html>

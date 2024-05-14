@@ -10,31 +10,35 @@
 </head>
 <body>
 
-<div class="container">
-  <form th:action="@{/admin/cita/actualizar}" th:object="${cita}" method="post">
-    <table class="table table-sm">
-      <thead>
-      <tr>
-        <th scope="col">IDCita</th>
-        <th scope="col">Descripcion</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Codigo Servico</th>
-        <th scope="col">Codigo Usuario</th>
-      </thead>
-      <tbody>
-      <th><input type="text" name="idCita" th:field="*{idCita}" class="form-control" placeholder="idCita" required readonly></th>
-      <td><input type="text" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="descripcion" required></td>
-      <td><input type="text" name="fecha" th:field="*{fecha}" class="form-control" placeholder="fecha" required></td>
-      <td><input type="text" name="estado" th:field="*{estado}" class="form-control" placeholder="estado" required></td>
-      <td><input type="text" name="empleadoIdEmpleado" th:field="*{servicioIdServicio}" class="form-control" placeholder="servicioIdServicio" required></td>
-      <td><input type="text" name="clienteIdCliente" th:field="*{userIdUser}" class="form-control" placeholder="userIdUser" required></td>
-      <td><button class="btn btn-success" >Actualizar</button></td>
-      </tbody>
-    </table>
+<div class="container text-center" >
+  <form th:action="@{/admin/cita/actualizar}" th:object="${cita}" method="post" style="max-width: 400px; margin: 0 auto;">
+    <div class="form-group">
+      <label for="idCita">IDCita</label>
+      <input type="text" id="idCita" name="idCita" th:field="*{idCita}" class="form-control" placeholder="idCita" required readonly>
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}" class="form-control" placeholder="descripcion" required>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="text" id="fecha" name="fecha" th:field="*{fecha}" class="form-control" placeholder="fecha" required>
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <input type="text" id="estado" name="estado" th:field="*{estado}" class="form-control" placeholder="estado" required>
+    </div>
+    <div class="form-group">
+      <label for="servicioIdServicio">Codigo Servico</label>
+      <input type="text" id="servicioIdServicio" name="empleadoIdEmpleado" th:field="*{servicioIdServicio}" class="form-control" placeholder="servicioIdServicio" required>
+    </div>
+    <div class="form-group">
+      <label for="userIdUser">Codigo Usuario</label>
+      <input type="text" id="userIdUser" name="clienteIdCliente" th:field="*{userIdUser}" class="form-control" placeholder="userIdUser" required>
+    </div>
+    <button type="submit" class="btn btn-success">Actualizar</button>
   </form>
 </div>
-
 
 </body>
 </html>

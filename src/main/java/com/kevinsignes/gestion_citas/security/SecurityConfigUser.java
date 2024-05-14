@@ -42,8 +42,8 @@ public class SecurityConfigUser {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/servicio","/inicio","/informacion","/empleado","/editar_cita","/citas_usuario","/cita","/servicio","/admin").authenticated()
-                //.requestMatchers("/**").permitAll()
+                //.requestMatchers("/servicio","/inicio","/informacion","/empleado","/editar_cita","/citas_usuario","/cita","/servicio","/admin").authenticated()
+                .requestMatchers("/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

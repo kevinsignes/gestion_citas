@@ -15,51 +15,76 @@
 <div>
     <header th:replace="header/nav :: mimenu"></header>
 </div>
+
+
     <div th:if="${#authentication.name == 'admin'}">
         <div class="container text-center">
             <div  class="panel panel-default">
-                <div class="panel-heading"><h1>Bienvenido, <span th:text="${#authentication.name}"></span>!</h1></div>
-                <div class="panel-body">
-                    <p>
-                        <a th:href="@{/cita}">
-                            <button  class="btn btn-primary">Crear cita</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/empleado}">
-                            <button  class="btn btn-primary">Crear empleado</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/servicio}">
-                            <button  class="btn btn-primary">Crear servicio</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/crear_user}">
-                            <button  class="btn btn-primary">Crear Usuario</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/listaCita}">
-                            <button  class="btn btn-primary">Lista Citas</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/listaServicio}">
-                            <button  class="btn btn-primary">Lista Servicios</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/listaUser}">
-                            <button  class="btn btn-primary">Lista User</button>
-                        </a>
-                    </p>
-                    <p>
-                        <a th:href="@{/listaEmpleado}">
-                            <button  class="btn btn-primary">Lista Empleado</button>
-                        </a>
-                    </p>
+                <div class="panel-heading"><h1>Bienvenido, <span th:text="${#authentication.name}"></span>!</h1>
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-danger" type="submit">Logout</button>
+                    </form>
+
+                </div>
+                <div class="panel-body " >
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            Citas
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" >
+                                <a th:href="@{/cita}">
+                                    <button  class="btn btn-warning">Crear </button>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a th:href="@{/listaCita}">
+                                    <button  class="btn btn-danger">Citas</button>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="card" >
+                        <div class="card-header">
+                            Servicios
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" >
+                                <a th:href="@{/servicio}">
+                                    <button  class="btn btn-warning">Crear </button>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a th:href="@{/listaServicio}">
+                                    <button  class="btn btn-danger">Servicios </button>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            Usuario
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" >
+                                <a th:href="@{/crear_user}">
+                                    <button  class="btn btn-warning">Crear </button>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a th:href="@{/listaUser}">
+                                    <button  class="btn btn-danger">Usuarios</button>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

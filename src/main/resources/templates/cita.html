@@ -1,49 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <title>Crear Cita</title>
-</head>
+  <meta charset="ISO-8859-1">
+  <title>Inicio</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/estilo.css}"></head>
 <body>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div>
+  <header th:replace="header/nav :: mimenu"></header>
+</div>
 
 <div class="container text-center">
   <div>
     <h1>Crear Cita</h1>
   </div>
-  <form th:action="@{/cita/submit}" th:object="${cita}"
-        method="post" style="max-width: 600px; margin: 0 auto;">
+
+  <!-- Formulario de creación de cita -->
+  <form th:action="@{/cita/submit}" th:object="${cita}" method="post" style="max-width: 600px; margin: 0 auto;">
     <div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripcion :</label>
-        <textarea class="form-control" th:field="*{descripcion}" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+      <!-- Mostrar datos del servicio -->
+      <div class="card" >
+        <img class="card-img-top" th:src="@{/img/{imageName}(imageName=${imagenServicio})}" alt="Imagen de servicio">
+        <div class="card-body">
+          <h5 class="card-title">
+            <label>Nombre del servicio:</label>
+            <input type="text" class="form-control" th:value="${nombreServicio}" readonly>
+          </h5>
+          <h5>
+            <label>Categoria:</label>
+            <input type="text" class="form-control" th:value="${categoriaServicio}" readonly>
+          </h5>
+          <h5>
+            <label>Precio:</label>
+            <input type="text" class="form-control" th:value="${precioServicio}" readonly>
+          </h5>
+         </div>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Fecha :</label>
+        <label for="exampleInputEmail1">Fecha:</label>
         <input type="date" name="fecha" class="form-control" th:field="*{fecha}" id="exampleInputEmail1" aria-describedby="emailHelp" min="" required>
       </div>
 
-
-
       <div class="form-group">
-        <label for="exampleInputEmail1">Codigo de Usuario :</label>
-        <input type="text" class="form-control"  th:field="*{userIdUser}"  >
+        <label for="exampleInputEmail1">Nombre del cliente:</label>
+        <input type="text" class="form-control" th:field="*{nombre}" required>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Servicio Codigo :</label>
-        <input type="text" class="form-control"  th:field="*{servicioIdServicio}"  >
+        <label for="exampleInputEmail1">Apellido del cliente:</label>
+        <input type="text" class="form-control" th:field="*{apellido}" required>
       </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Observaciones (opcional):</label>
+        <textarea class="form-control" th:field="*{descripcion}" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+
+      <br>
 
       <div>
         <button type="submit" class="btn btn-primary">Pedir Cita</button>
@@ -52,8 +70,6 @@
   </form>
 </div>
 
-
-
 <script>
   // Obtener el elemento por el atributo 'name'
   var fechaInput = document.getElementsByName('fecha')[0];
@@ -61,20 +77,55 @@
   // Obtener la fecha actual
   var fechaActual = new Date();
 
-  // Sumar 7 dÃ­as a la fecha actual
-  fechaActual.setDate(fechaActual.getDate() + 7);
+  // Sumar 7 días a la fecha actual
+  fechaActual.setDate(fechaActual.getDate() + 2);
 
   // Formatear la fecha en el formato necesario para el atributo 'min'
   var fechaMinima = fechaActual.toISOString().split('T')[0];
 
-  // Establecer el valor mÃ­nimo en el campo de fecha
+  // Establecer el valor mínimo en el campo de fecha
   fechaInput.min = fechaMinima;
 </script>
 
+<!-- JavaScript para rellenar automáticamente el campo servicioIdServicio -->
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  document.addEventListener('DOMContentLoaded', function () {
+    // Obtener el ID del servicio de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var servicioId = urlParams.get('servicioId');
+
+    // Asignar el ID del servicio al campo servicioIdServicio
+    document.getElementById('servicioIdServicio').value = servicioId;
+  });
+  /*]]>*/
+</script>
 </body>
 </html>
 
+
+
+
+
+
 <!--
+
+<script>
+  // Obtener el elemento por el atributo 'name'
+  var fechaInput = document.getElementsByName('fecha')[0];
+
+  // Obtener la fecha actual
+  var fechaActual = new Date();
+
+  // Sumar 7 días a la fecha actual
+  fechaActual.setDate(fechaActual.getDate() + 7);
+
+  // Formatear la fecha en el formato necesario para el atributo 'min'
+  var fechaMinima = fechaActual.toISOString().split('T')[0];
+
+  // Establecer el valor mínimo en el campo de fecha
+  fechaInput.min = fechaMinima;
+</script>
 
 <div class="container text-center">
   <div>
@@ -121,13 +172,13 @@
   // Obtener la fecha actual
   var fechaActual = new Date();
 
-  // Sumar 7 dÃ­as a la fecha actual
+  // Sumar 7 días a la fecha actual
   fechaActual.setDate(fechaActual.getDate() + 7);
 
   // Formatear la fecha en el formato necesario para el atributo 'min'
   var fechaMinima = fechaActual.toISOString().split('T')[0];
 
-  // Establecer el valor mÃ­nimo en el campo de fecha
+  // Establecer el valor mínimo en el campo de fecha
   fechaInput.min = fechaMinima;
 </script>
 

@@ -18,52 +18,5 @@
 <div class="container text-center">
     <img class="text-center" src="/img/logoPrincipal.png">
 </div>
-
-<div class="container text-center">
-    <a th:href="@{/cita}" class="btn btn-info">Crear Cita</a>
-    <div>
-        <h1>Lista de Servicios</h1>
-    </div>
-
-
-    <div class="card-deck" >
-        <table class="table table-striped table-bordered" >
-            <!--
-            <thead class="thead-dark">
-            <tr>
-                <th class="caption">ID</th>
-                <th class="caption">Nombre del Servicio</th>
-                <th class="caption">Categoria</th>
-                <th class="caption">Descipcion</th>
-                <th class="caption">Precio</th>
-                <th class="caption">Codigo de Empleado</th>
-
-
-            </thead>
--->
-            <tbody>
-            <tr   th:each="servicio : ${servicio}" class="card mb-3">
-                <div class="card-body">
-                    <td><b>CODIGO DEL SERVICIO</b></td>
-                <td class="card-title text-right"  th:text="${servicio.idServicio}"></td>
-                    <td><b>Nombre Servicio</b></td>
-                <td class="card-text" th:text="${servicio.nombre}">Nombre del Servicio</td>
-                    <td><b>Categoria</b></td>
-                <td class="card-text" th:text="${servicio.categoria}">Categoria</td>
-                    <td><b>Descripcion Del Servicio</b></td>
-                <td class="card-text" th:text="${servicio.descripcion}">Descipcion</td>
-                    <td><b>Precio</b></td>
-                <td class="card-text" th:text="${servicio.precio}">Precio</td>
-                <td>
-                    <a th:href="@{/cita}" class="btn btn-info">Crear Cita</a>
-                </td>
-                </div>
-            </tr>
-            </tbody>
-
-        </table>
-    </div>
-</div>
-
 </body>
 </html>

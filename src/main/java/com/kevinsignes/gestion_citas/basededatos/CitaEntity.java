@@ -20,11 +20,19 @@ public class CitaEntity {
     @Basic
     @Column(name = "estado", nullable = true, length = 45)
     private String estado;
+
+    @Basic
+    @Column(name = "nombre", nullable = true, length = 45)
+    private String nombre;
+
+    @Basic
+    @Column(name = "apellido", nullable = true, length = 45)
+    private String apellido;
     @Basic
     @Column(name = "servicio_id_servicio", nullable = false)
     private int servicioIdServicio;
     @Basic
-    @Column(name = "User_id_user", nullable = false)
+    @Column(name = "User_id_user", nullable = true)
     private int userIdUser;
 
     public int getIdCita() {
@@ -33,6 +41,22 @@ public class CitaEntity {
 
     public void setIdCita(int idCita) {
         this.idCita = idCita;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getDescripcion() {
@@ -80,18 +104,11 @@ public class CitaEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CitaEntity that = (CitaEntity) o;
-        return idCita == that.idCita && servicioIdServicio == that.servicioIdServicio && userIdUser == that.userIdUser && Objects.equals(descripcion, that.descripcion) && Objects.equals(fecha, that.fecha) && Objects.equals(estado, that.estado);
+        return idCita == that.idCita && servicioIdServicio == that.servicioIdServicio && userIdUser == that.userIdUser && descripcion.equals(that.descripcion) && fecha.equals(that.fecha) && estado.equals(that.estado) && nombre.equals(that.nombre) && apellido.equals(that.apellido);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCita, descripcion, fecha, estado, servicioIdServicio, userIdUser);
+        return Objects.hash(idCita, descripcion, fecha, estado, nombre, apellido, servicioIdServicio, userIdUser);
     }
-
-
-
-
-
-
-
 }

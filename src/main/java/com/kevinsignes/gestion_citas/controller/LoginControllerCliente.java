@@ -44,7 +44,7 @@ public class LoginControllerCliente {
             model.addAttribute("usuario", u);
         });
 
-        return "informacion";
+        return "admin";
     }
 
 }

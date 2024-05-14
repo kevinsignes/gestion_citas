@@ -27,7 +27,7 @@
           <th class="caption">Categoria</th>
           <th class="caption">Descipcion</th>
           <th class="caption">Precio</th>
-          <th class="caption">Codigo de Empleado</th>
+          <th class="caption">ImagenNombre</th>
 
 
       </thead>
@@ -36,11 +36,11 @@
       <tr   th:each="servicio : ${servicio}">
         <div>
           <td class="card-title text-right"  th:text="${servicio.idServicio}"></td>
-          <td class="card-text" th:text="${servicio.nombre}">Nombre del Servicio</td>
-          <td class="card-text" th:text="${servicio.categoria}">Categoria</td>
-          <td class="card-text" th:text="${servicio.descripcion}">Descipcion</td>
-          <td class="card-text" th:text="${servicio.precio}">Precio</td>
-          <td class="card-text" th:text="${servicio.empleadoIdEmpleado}">Codigo de Empleado</td>
+          <td class="card-text" th:text="${servicio.nombre}"></td>
+          <td class="card-text" th:text="${servicio.categoria}"></td>
+          <td class="card-text" th:text="${servicio.descripcion}"></td>
+          <td class="card-text" th:text="${servicio.precio}"></td>
+          <td class="card-text" th:text="${servicio.imagen}"></td>
           <td>
             <a th:href="@{/admin/editar/{id}(id=${servicio.idServicio})}" class="btn btn-info">Editar</a>
             <a th:href="@{/admin/borrar/{id}(id=${servicio.idServicio})}" class="btn btn-danger">Borrar</a>

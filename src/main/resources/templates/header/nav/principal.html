@@ -7,12 +7,40 @@
 </head>
 <body>
 <nav th:fragment="menu1">
+
+    <ul class="menu-horizontal">
+        <li>
+            <a th:href="@{/buscar}">Inicio</a>
+        </li>
+        <div th:if="${#authentication.name == 'admin'}">
+        <li>
+            <a th:href="@{/admin}">Admin</a>
+        </li>
+        </div>
+        <li>
+            <a th:href="@{/login}">Login</a>
+
+        </li>
+
+
+    </ul>
+
+
+
+
+    <!--
     <ul class="menu-horizontal">
         <li><a th:href="@{/inicio}">Inicio</a></li>
         <li>
             <a href="#" >Citas Usuario</a>
             <ul class="menu-vertical">
                 <li><a th:href="@{/citas_usuario}">Mis Citas</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" >Busqueda</a>
+            <ul class="menu-vertical">
+                <li><a th:href="@{/buscar.html}">busqueda</a></li>
             </ul>
         </li>
         <li>
@@ -24,6 +52,7 @@
         </li>
 
     </ul>
+    -->
 </nav>
 </body>
 </html>

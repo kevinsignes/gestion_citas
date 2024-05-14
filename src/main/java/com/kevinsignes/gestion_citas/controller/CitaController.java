@@ -3,6 +3,7 @@ package com.kevinsignes.gestion_citas.controller;
 import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
 import com.kevinsignes.gestion_citas.basededatos.UserEntity;
 import com.kevinsignes.gestion_citas.repository.ICitaRepository;
+import com.kevinsignes.gestion_citas.repository.IServicioRepository;
 import com.kevinsignes.gestion_citas.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,15 +23,50 @@ public class CitaController {
     @Autowired
     private IUserRepository iUserRepository;
 
-    @GetMapping({"/cita"})
-    public String goTocita(Model model){
+    @Autowired
+    private IServicioRepository iServicioRepository;
+
+    // Método para mostrar el formulario de cita
+    @GetMapping("/cita")
+    public String mostrarFormularioCita(@RequestParam("servicioId") int servicioId, Model model) {
+        // Obtener el nombre del servicio por su ID
+        String nombreServicio = iServicioRepository.findNombreById(servicioId);
+
+        // Agregar el nombre del servicio al modelo
+        model.addAttribute("nombreServicio", nombreServicio);
+
+        // Obtener la imagen del servicio por su ID
+        String imagenServicio = iServicioRepository.findImagenById(servicioId);
+
+        // Agregar el imagen del servicio al modelo
+        model.addAttribute("imagenServicio", imagenServicio);
+
+        // Obtener el categoria del servicio por su ID
+        String categoriaServicio = iServicioRepository.findCategoriaById(servicioId);
+
+        // Agregar el categoria del servicio al modelo
+        model.addAttribute("categoriaServicio", categoriaServicio);
+
+        // Obtener el descripcion del servicio por su ID
+        double precioServicio = iServicioRepository.findPrecioById(servicioId);
+
+        // Agregar el descripcion del servicio al modelo
+        model.addAttribute("precioServicio", precioServicio);
+
+        // Agregar un objeto CitaEntity vacío al modelo
         model.addAttribute("cita", new CitaEntity());
+
+        // Retornar el nombre de la página HTML del formulario de cita
         return "cita";
     }
+
+    // Método para procesar el formulario de cita
     @PostMapping("/cita/submit")
-    public String processCita(@ModelAttribute("cita") CitaEntity cita) {
+    public String submitCita(@ModelAttribute("cita") CitaEntity cita, Model model) {
+        // Guardar la cita en la base de datos
         iCitaRepository.save(cita);
-        return "redirect:/citas_usuario";
+
+        return "redirect:/buscar"; // Redirigir a la página de búsqueda
     }
 
     @RequestMapping("/cita/editar/{id}")
