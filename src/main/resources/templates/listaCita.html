@@ -9,33 +9,30 @@
   <link rel="stylesheet" th:href="@{/css/estilo.css}">
 </head>
 <body>
-
-
 <div>
   <header th:replace="header/nav :: mimenu"></header>
 </div>
-
 <div class="container text-center">
-    <h1>Lista de citas</h1>
+  <h1>Lista de citas</h1>
   <div>
     <table class="table table-striped table-bordered">
       <thead class="thead-dark">
       <tr>
         <th class="caption">ID</th>
-        <th class="caption">Descrpcion</th>
+        <th class="caption">Descripción</th>
         <th class="caption">Fecha</th>
         <th class="caption">Estado</th>
-        <th class="caption">Codigo Servicio</th>
-        <th class="caption">Codigo Usuario</th>
-
+        <th class="caption">Nombre del Servicio</th>
+        <th class="caption">Código Usuario</th>
+        <th class="caption">Acciones</th>
       </thead>
       <tbody>
-      <tr th:each="cita : ${cita}" th:class="${'estado-' + cita.estado}">
-        <td  th:text="${cita.idCita}">ID</td>
-        <td th:text="${cita.descripcion}">Descrpcion</td>
+      <tr th:each="cita : ${citas}" th:class="${'estado-' + cita.estado}">
+        <td th:text="${cita.idCita}">ID</td>
+        <td th:text="${cita.descripcion}">Descripción</td>
         <td th:text="${cita.fecha}">Fecha</td>
         <td th:text="${cita.estado}">Estado</td>
-        <td th:text="${cita.servicioIdServicio}">Servicio ID</td>
+        <td th:text="${servicioNombres[cita.servicioIdServicio]}">Nombre del Servicio</td>
         <td th:text="${cita.userIdUser}">Usuario ID</td>
         <td>
           <a th:href="@{/admin/cita/editar/{id}(id=${cita.idCita})}" class="btn btn-info">Editar</a>
@@ -46,6 +43,5 @@
     </table>
   </div>
 </div>
-
 </body>
 </html>

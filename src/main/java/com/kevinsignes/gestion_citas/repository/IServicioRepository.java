@@ -1,6 +1,7 @@
 package com.kevinsignes.gestion_citas.repository;
 
 
+import com.kevinsignes.gestion_citas.basededatos.CitaEntity;
 import com.kevinsignes.gestion_citas.basededatos.ServicioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +11,8 @@ import java.util.List;
 
 public interface IServicioRepository extends JpaRepository<ServicioEntity, Integer> {
 
-
+    @Query("SELECT s.nombre FROM ServicioEntity s WHERE s.id = :id")
+    String findNombrePorId(@Param("id") int id);
     @Query("SELECT s.nombre FROM ServicioEntity s WHERE s.id = :servicioId")
     String findNombreById(@Param("servicioId") int servicioId);
 
@@ -33,4 +35,6 @@ public interface IServicioRepository extends JpaRepository<ServicioEntity, Integ
 
     @Query("SELECT p FROM ServicioEntity p WHERE p.categoria LIKE %:q%")
     List<ServicioEntity> buscarPorCategoria(@Param("q") String nombre);
+
+
 }
